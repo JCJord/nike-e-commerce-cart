@@ -2,4 +2,4 @@
 
 ## Clone do carrinho de compras da nike
 
-Projeto Angular :construction_worker::construction_worker::construction_worker:
+Projeto Angular :construction_worker: :hammer: :wrench:
