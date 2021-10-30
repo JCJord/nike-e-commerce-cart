@@ -1,0 +1,56 @@
+@import "../../variables";
+.header {
+  height: 37px !important;
+  background-color: $white !important;
+  border-bottom: 1px solid $lightGrey;
+  margin: 0 !important;
+}
+.navbar-brand {
+  font-size: 14px;
+  color: $nikeGrey;
+  border-right: 1px solid $lightGrey;
+  padding-right: 27px;
+  cursor: pointer;
+}
+.brand-items:nth-child(1) {
+  padding-right: 15px;
+}
+.brand-items:nth-child(2) {
+  padding-right: 20px;
+  padding-left: 10px;
+}
+.brand-items {
+}
+.brand-items {
+  font-size: 13px;
+  border-right: 1px solid $lightGrey;
+}
+.nba {
+  width: 22px;
+}
+
+.nav-item {
+  font-size: 13px;
+  margin-right: 10px;
+  color: $nikeGrey;
+}
+
+.burger div {
+  width: 25px;
+  height: 2px;
+  border-radius: 15px;
+  background-color: black;
+  margin: 6px 0;
+}
+.logo img {
+  width: 40px;
+}
+.cart-mobile img {
+  width: 23px;
+}
+
+@media only screen and (max-width: 992px) {
+  .header {
+    display: none;
+  }
+}
