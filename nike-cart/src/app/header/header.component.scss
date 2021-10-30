@@ -19,8 +19,7 @@
   padding-right: 20px;
   padding-left: 10px;
 }
-.brand-items {
-}
+
 .brand-items {
   font-size: 13px;
   border-right: 1px solid $lightGrey;
@@ -39,7 +38,7 @@
   width: 25px;
   height: 2px;
   border-radius: 15px;
-  background-color: black;
+  background-color: $black;
   margin: 6px 0;
 }
 .logo img {
@@ -48,9 +47,14 @@
 .cart-mobile img {
   width: 23px;
 }
-
+app-mobile-nav {
+  display: none;
+}
 @media only screen and (max-width: 992px) {
   .header {
     display: none;
+  }
+  app-mobile-nav {
+    display: block;
   }
 }

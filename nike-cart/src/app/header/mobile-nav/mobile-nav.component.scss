@@ -1,0 +1,13 @@
+@import "../../../variables";
+
+.search-btn {
+  border-radius: 0px;
+  border-right: none;
+  border-color: $lightGrey;
+}
+.search-input {
+  border-left: none;
+  border-radius: 0px;
+  border-color: $lightGrey;
+  font-size: 13px;
+}

@@ -1,0 +1,60 @@
+@import "../../../variables";
+
+.carousel {
+  background: $white;
+  height: 44px;
+  border-bottom: 1px solid $lightGrey;
+}
+.carousel-item {
+  text-align: center;
+  color: $black;
+  margin: 12px;
+  font-size: 13px;
+  cursor: auto;
+}
+
+.arrow {
+  border: 1px solid $black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+@media only screen and (max-width: 992px) {
+  .carousel {
+    background: $black;
+    height: 44px;
+  }
+  .carousel-item {
+    text-align: center;
+    color: $white;
+    margin: 12px;
+    font-size: 13px;
+    cursor: auto;
+  }
+
+  .arrow {
+    border: 1px solid $white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 5px;
+  }
+
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+}
