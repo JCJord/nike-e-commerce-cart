@@ -2,17 +2,24 @@
 
 .carousel {
   background: $white;
-  height: 44px;
+  height: 52px;
   border-bottom: 1px solid $lightGrey;
 }
 .carousel-item {
   text-align: center;
   color: $black;
-  margin: 12px;
+  margin-top: 6px;
   font-size: 13px;
   cursor: auto;
 }
-
+.carousel-item img {
+  position: relative;
+  width: 40px;
+  right: 20px;
+}
+u {
+  font-size: 11px;
+}
 .arrow {
   border: 1px solid $black;
   border-width: 0 3px 3px 0;
@@ -32,16 +39,19 @@
 @media only screen and (max-width: 992px) {
   .carousel {
     background: $black;
-    height: 44px;
+    height: auto;
   }
   .carousel-item {
     text-align: center;
     color: $white;
-    margin: 12px;
     font-size: 13px;
     cursor: auto;
+    padding: 15px;
+    margin-top: 0;
   }
-
+  .carousel-item img {
+    display: none;
+  }
   .arrow {
     border: 1px solid $white;
     border-width: 0 3px 3px 0;
@@ -56,5 +66,10 @@
   .left {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
+  }
+}
+@media only screen and (max-width: 425px) {
+  .carousel-item {
+    font-size: 3vw;
   }
 }

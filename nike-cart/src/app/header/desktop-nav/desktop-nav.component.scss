@@ -1,0 +1,49 @@
+@import "../../../variables";
+@import "../mobile-nav/mobile-nav.component.scss";
+@mixin flexSpace($content) {
+  justify-content: $content;
+  align-items: center;
+}
+
+.desk-nav .container {
+  @include flexSpace(space-between);
+  padding: 5px;
+}
+.desk-nav {
+  border-bottom: 1px solid $lightGrey;
+}
+
+.desk-links ul li {
+  list-style: none;
+}
+
+.logo img {
+  width: 59px;
+  margin-left: 9px;
+}
+
+.search-input {
+  width: 170px;
+}
+
+.desk-links {
+  margin-left: 135px;
+  font-size: 13px;
+
+  font-weight: bold;
+}
+
+.desk-links a {
+  text-decoration: none;
+  margin-right: 27px;
+  color: $black;
+}
+
+.desk-links a:last-child {
+  margin-right: 0px;
+}
+@media only screen and (max-width: 1155px) {
+  .desk-links {
+    font-size: 1vw;
+  }
+}

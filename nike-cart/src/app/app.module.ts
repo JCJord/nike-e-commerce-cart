@@ -5,14 +5,16 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { HeaderComponent } from './header/header.component'
 import { MobileNavComponent } from './header/mobile-nav/mobile-nav.component'
-import { CarouselComponent } from './header/carousel/carousel.component'
+import { CarouselComponent } from './header/carousel/carousel.component';
+import { DesktopNavComponent } from './header/desktop-nav/desktop-nav.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MobileNavComponent,
-    CarouselComponent
+    CarouselComponent,
+    DesktopNavComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
