@@ -29,7 +29,7 @@
 .desk-links {
   margin-left: 135px;
   font-size: 13px;
-
+  position: relative;
   font-weight: bold;
 }
 
@@ -37,11 +37,50 @@
   text-decoration: none;
   margin-right: 27px;
   color: $black;
+
+  &:hover {
+    border-bottom: 2px solid black;
+    padding-bottom: 25px;
+  }
 }
 
 .desk-links a:last-child {
   margin-right: 0px;
 }
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+
+  background-color: $white;
+  top: 50px;
+
+  width: 100%;
+
+  margin: 0 auto;
+  border-bottom: 1px solid $lightGrey;
+  z-index: 1;
+  position: absolute;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
 @media only screen and (max-width: 1155px) {
   .desk-links {
     font-size: 1vw;
