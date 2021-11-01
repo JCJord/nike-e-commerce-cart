@@ -1,0 +1,8 @@
+.col-sm {
+  border: dotted;
+}
+@media only screen and (max-width: 1025px) {
+  .shoes-filter {
+    display: none;
+  }
+}
