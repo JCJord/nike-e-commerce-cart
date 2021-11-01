@@ -1,5 +1,26 @@
-.col-sm {
-  border: dotted;
+@import "../../variables";
+
+.col-sm a p {
+  margin-top: -4px;
+}
+.col-sm h3 {
+  font-size: 16px;
+}
+.col-sm a {
+  text-decoration: none;
+  color: $black;
+}
+.row img {
+  width: 95%;
+}
+.text-muted {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: -3px;
+}
+.color-item {
+  margin-top: -11px !important;
+  color: rgb(134, 134, 134);
 }
 @media only screen and (max-width: 1025px) {
   .shoes-filter {
