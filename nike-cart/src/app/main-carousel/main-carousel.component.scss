@@ -1,0 +1,62 @@
+@import "../../variables";
+@mixin justifyContent($content) {
+  justify-content: $content;
+  align-items: center;
+}
+.carousel {
+  width: 100%;
+}
+
+.carousel img {
+  max-width: 200px;
+}
+.content-text {
+  margin-top: 60px;
+  margin-left: 20px;
+}
+.content-text h4 {
+  font-size: 14px;
+  font-weight: bold;
+}
+.content-text h3 {
+  font-weight: none;
+  font-size: 13px;
+}
+.publishment {
+  border: 1px solid $lightGrey;
+  max-width: 1100px;
+  margin: 0 auto;
+  @include justifyContent(space-between);
+}
+
+.publishment h1 {
+  display: inline-block;
+  margin-left: 25px;
+  margin-right: 25px;
+  font-size: 36px;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-top: 40px solid transparent;
+  border-left: 30px solid $lightGrey;
+  border-bottom: 50px solid transparent;
+}
+
+.carousel-indicators li {
+  background-color: $indicators !important;
+  border-radius: 50px !important;
+  width: 10px;
+  margin-bottom: 3px;
+  height: 10px;
+  margin-left: auto !important;
+}
+.carousel-indicators {
+  margin-bottom: 75px;
+  width: 82%;
+  display: list-item !important;
+}
+.carousel-indicators .active {
+  background-color: $selectedIndicators !important;
+}
