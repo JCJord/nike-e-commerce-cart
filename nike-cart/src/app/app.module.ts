@@ -9,7 +9,8 @@ import { CarouselComponent } from './header/carousel/carousel.component';
 import { DesktopNavComponent } from './header/desktop-nav/desktop-nav.component';
 import { MainCarouselComponent } from './main-carousel/main-carousel.component';
 import { HomeComponent } from './home/home.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component'
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { FilterComponent } from './filter/filter.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component'
     DesktopNavComponent,
     MainCarouselComponent,
     HomeComponent,
-    ShoppingListComponent
+    ShoppingListComponent,
+    FilterComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
