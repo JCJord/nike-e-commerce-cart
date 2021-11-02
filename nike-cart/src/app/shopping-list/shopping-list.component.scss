@@ -1,31 +1,31 @@
 @import "../../variables";
 
-.col-sm a p {
+.item a p {
   margin-top: -4px;
 }
-.col-sm h3 {
+.item h3 {
   font-size: 16px;
-  margin-top: 10px;
 }
-.col-sm-2 h3 {
+.sidenav h3 {
   font-size: 24px;
   font-weight: bold;
 }
-.col-sm-2 h4 {
-  font-size: 16px;
+.sidenav h4 {
+  font-size: 13px;
   margin-top: 30px;
   font-weight: bold;
   color: $nikeGrey;
+  margin-bottom: 5px;
 }
-.col-sm-2 ul {
+.sidenav ul {
   list-style: none;
   padding: 0;
 }
-.col-sm-2 li {
-  margin-top: 5px;
+.sidenav li {
+  margin-top: 7px;
   font-size: 13px;
 }
-.col-sm a {
+.item a {
   text-decoration: none;
   color: $black;
 }
@@ -42,8 +42,48 @@
   color: rgb(134, 134, 134);
 }
 
+.shopping-list {
+  display: grid;
+
+  grid-template-areas: "sidenav item item item" "sidenav item item item" "sidenav item item item" "sidenav item item item";
+  grid-gap: 20px;
+}
+img {
+  width: 100%;
+}
+.sidenav {
+  max-width: 300px;
+  min-width: 200px;
+  width: 300px;
+  height: auto;
+
+  grid-area: "sidenav";
+  grid-row: sidenav;
+}
+.item {
+  max-width: 300px;
+  min-width: 200px;
+  height: auto;
+  grid-area: "item";
+}
+@media only screen and (max-width: 875px) {
+}
 @media only screen and (max-width: 1025px) {
   .shoes-filter {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .shopping-list {
+    display: grid;
+
+    grid-template-areas: "item item" " item item" "item item" "item item";
+  }
+  .item {
+    max-width: 500px;
+    min-width: 100px;
+  }
+  .sidenav {
     display: none;
   }
 }

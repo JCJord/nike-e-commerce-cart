@@ -67,4 +67,8 @@ export class ShoppingListService {
   getShoes () {
     return this.shoes
   }
+
+  getAmountOfShoes () {
+    return this.shoes.length
+  }
 }

@@ -1,24 +1,23 @@
 <div class="container shopping-list">
-  <div class="row">
-    <div class="col-sm-2 shoes-filter">
-      <h3>Calçados (278)</h3>
-      <h4>Tipos de calçados</h4>
-      <ul>
-        <li>Chuteira (255)</li>
-        <li>Basquete (22)</li>
-        <li>Corrida (10)</li>
-      </ul>
-    </div>
+  <div class="sidenav">
+    <h3>Calçados ({{ shoesAmount }})</h3>
+    <h4>TIPOS DE CALÇADOS</h4>
+    <ul>
+      <li>Casual (21)</li>
+      <li>Corrida (14)</li>
+      <li>Feminino (10)</li>
+      <li>Masculino (42)</li>
+      <li>SkateBoarding (20)</li>
+    </ul>
+  </div>
+  <div class="item" *ngFor="let shoe of shoes; let i = index">
+    <a href="">
+      <img [src]="shoe.imgUrl" alt="" />
+      <h3>{{ shoe.name }}</h3>
+      <h4 class="text-muted">{{ shoe.type }}</h4>
+      <p>R$ {{ shoe.price }}</p>
 
-    <div class="col-sm-3" *ngFor="let shoe of shoes; let i = index">
-      <a href="">
-        <img [src]="shoe.imgUrl" alt="" />
-        <h3>{{ shoe.name }}</h3>
-        <h4 class="text-muted">{{ shoe.type }}</h4>
-        <p>R$ {{ shoe.price }}</p>
-
-        <p class="color-item">1 Cor</p></a
-      >
-    </div>
+      <p class="color-item">1 Cor</p></a
+    >
   </div>
 </div>

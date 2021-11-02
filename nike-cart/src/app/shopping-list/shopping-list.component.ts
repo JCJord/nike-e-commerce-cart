@@ -9,9 +9,12 @@ import { ShoppingListService } from './shopping-list-service'
 })
 export class ShoppingListComponent implements OnInit {
   shoes!: Shoes[]
+  shoesAmount!: number
+
   constructor (private shoppingListService: ShoppingListService) {}
 
   ngOnInit (): void {
     this.shoes = this.shoppingListService.getShoes()
+    this.shoesAmount = this.shoppingListService.getAmountOfShoes()
   }
 }
