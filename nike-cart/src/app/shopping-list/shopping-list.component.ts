@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import { Shoes } from './shoes.model'
+import { ShoppingListService } from './shopping-list-service'
 
 @Component({
   selector: 'app-shopping-list',
@@ -6,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shopping-list.component.scss']
 })
 export class ShoppingListComponent implements OnInit {
+  shoes!: Shoes[]
+  constructor (private shoppingListService: ShoppingListService) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit (): void {
+    this.shoes = this.shoppingListService.getShoes()
   }
-
 }

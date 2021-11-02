@@ -96,10 +96,12 @@
 .right {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
+  margin-right: 5px;
 }
 .left {
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
+  margin-left: 5px;
 }
 @media only screen and (max-width: 800px) {
   .publishment {

@@ -10,41 +10,13 @@
       </ul>
     </div>
 
-    <div class="col-sm">
+    <div class="col-sm-3" *ngFor="let shoe of shoes; let i = index">
       <a href="">
-        <img
-          src="https://images.lojanike.com.br/320x320/produto/tenis-nike-kyrie-low-4-unissex-CW3985-400-1.jpg"
-          alt=""
-        />
-        <h3>Tênis Nike Sportswear Air Max 90 Masculino</h3>
-        <h4 class="text-muted">Casual</h4>
-        <p>R$ 259,59</p>
+        <img [src]="shoe.imgUrl" alt="" />
+        <h3>{{ shoe.name }}</h3>
+        <h4 class="text-muted">{{ shoe.type }}</h4>
+        <p>R$ {{ shoe.price }}</p>
 
-        <p class="color-item">1 Cor</p></a
-      >
-    </div>
-    <div class="col-sm">
-      <a href=""
-        ><img
-          src="https://images.lojanike.com.br/320x320/produto/tenis-nike-air-max-ap-CU4826-001-1-11628868413.jpg"
-          alt=""
-        />
-
-        <h3>Tenis</h3>
-        <h4 class="text-muted">Casual</h4>
-        <p>R$ 149,99</p>
-        <p class="color-item">1 Cor</p></a
-      >
-    </div>
-    <div class="col-sm">
-      <a href=""
-        ><img
-          src="https://images.lojanike.com.br/320x320/produto/tenis-air-vapormax-2021-fk-DC9394-001-1-11629211589.jpg"
-          alt=""
-        />
-        <h3>Tenis</h3>
-        <h4 class="text-muted">Casual</h4>
-        <p>R$ 174,99</p>
         <p class="color-item">1 Cor</p></a
       >
     </div>
