@@ -2,19 +2,37 @@
   align-items: $position;
 }
 .filterbox {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .filter-items {
   margin-left: auto;
-  margin-right: 25px;
+  margin-right: 30px;
   width: fit-content;
 
   @include AlignHorizontal(center);
 }
 
+.filter-items img {
+  width: 24px;
+}
 .filter-items b {
   font-size: 20px;
-  margin-right: 50px;
+  margin-right: 5px;
+}
+
+.filter-selector {
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 400px) {
+  .dropdown {
+    display: none;
+  }
+
+  .filter-selector {
+    margin-right: 0;
+  }
 }

@@ -1,6 +1,5 @@
 @import "../../variables";
 @mixin justifyContent($content) {
-  justify-content: $content;
   align-items: center;
 }
 .carousel {
@@ -11,8 +10,8 @@
   max-width: 200px;
 }
 .content-text {
+  margin-left: 17px;
   margin-top: 60px;
-  margin-left: 20px;
 }
 .content-text h4 {
   font-size: 14px;
@@ -59,4 +58,119 @@
 }
 .carousel-indicators .active {
   background-color: $selectedIndicators !important;
+}
+.featured-mobile {
+  display: none !important;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  display: none;
+}
+@mixin arrowsAdjust() {
+  height: 20%;
+  width: 32px;
+  top: 36%;
+}
+@mixin arrowsBox() {
+  display: block;
+  background-color: rgb(224, 224, 224) !important;
+
+  border-radius: 2px;
+  &:hover {
+    background-color: rgb(228, 228, 228) !important;
+  }
+  transition: 0.7s ease;
+}
+@mixin arrowShape() {
+  padding: 5px;
+  border-radius: 2px;
+  margin-top: 27px;
+}
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  @include arrowShape();
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+@media only screen and (max-width: 800px) {
+  .publishment {
+    border: none;
+  }
+
+  .carousel-control-next {
+    @include arrowsBox();
+  }
+  .carousel-control-prev {
+    @include arrowsBox();
+  }
+  .carousel-control-prev {
+    display: block;
+    @include arrowsAdjust();
+
+    color: black !important;
+  }
+
+  .carousel-control-next {
+    @include arrowsAdjust();
+  }
+  .triangle {
+    display: none;
+  }
+  .featured-mobile {
+    display: block !important;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .content-text {
+    margin-top: 10px;
+    margin-left: 0;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .content-text-box {
+    width: 70%;
+    margin: 10px auto;
+    max-width: 200px;
+  }
+  .slider-content {
+    flex-wrap: wrap !important;
+    @include justifyContent(center);
+    justify-content: center;
+  }
+  .slider-content img {
+    width: 100% !important;
+  }
+  .carousel {
+  }
+  .publishment h1 {
+    display: none;
+  }
+  .carousel-indicators {
+    position: relative;
+    margin: 0;
+
+    margin: 0 auto;
+    display: flex !important;
+    padding: 0;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  .carousel-indicators li {
+    margin: 0 auto;
+    padding: 0;
+    margin: 0 !important;
+    margin-right: 5px !important;
+  }
+  .carousel-indicators .active {
+    background-color: black !important;
+  }
 }
