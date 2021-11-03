@@ -9,6 +9,7 @@
 .sidenav h3 {
   font-size: 24px;
   font-weight: bold;
+  cursor: pointer;
 }
 .sidenav h4 {
   font-size: 13px;
@@ -16,6 +17,7 @@
   font-weight: bold;
   color: $nikeGrey;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 .sidenav ul {
   list-style: none;
@@ -24,6 +26,10 @@
 .sidenav li {
   margin-top: 7px;
   font-size: 13px;
+  cursor: pointer;
+  &:hover {
+    color: $nikeGrey;
+  }
 }
 .item a {
   text-decoration: none;
@@ -60,12 +66,36 @@ img {
   grid-area: "sidenav";
   grid-row: sidenav;
 }
+.item-button {
+  visibility: hidden;
+  position: absolute;
+  padding: 8px;
+
+  text-align: center;
+  bottom: 103px;
+  font-weight: bold;
+  font-size: 12px;
+  background-color: $black;
+  border-radius: 3px;
+  color: $white !important;
+  width: 100% !important;
+  margin-bottom: 30px;
+}
+
 .item {
-  max-width: 300px;
+  max-width: 425px;
   min-width: 200px;
   height: auto;
   grid-area: "item";
+  position: relative;
+  &:hover .item-button {
+    visibility: visible;
+  }
 }
+
+.item h3 {
+}
+
 @media only screen and (max-width: 875px) {
 }
 @media only screen and (max-width: 1025px) {
@@ -84,6 +114,9 @@ img {
     min-width: 100px;
   }
   .sidenav {
+    display: none;
+  }
+  .item-button {
     display: none;
   }
 }
