@@ -101,4 +101,8 @@ export class ShoppingListService {
   getAmountOfShoes () {
     return this.shoes.length
   }
+
+  getItem (index: number) {
+    return this.shoes[index]
+  }
 }

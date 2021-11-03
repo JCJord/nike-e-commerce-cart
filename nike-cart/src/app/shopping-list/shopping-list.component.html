@@ -11,7 +11,7 @@
     </ul>
   </div>
   <div class="item" *ngFor="let shoe of shoes; let i = index">
-    <a href="">
+    <a [routerLink]="['/' + i]">
       <img [src]="shoe.imgUrl" alt="" />
       <h3>{{ shoe.name }}</h3>
       <h4 class="text-muted">{{ shoe.type }}</h4>

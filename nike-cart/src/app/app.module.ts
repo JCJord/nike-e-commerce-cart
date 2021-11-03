@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component'
 import { ShoppingListComponent } from './shopping-list/shopping-list.component'
 import { FilterComponent } from './filter/filter.component'
 import { ShoppingListService } from './shopping-list/shopping-list-service'
+import { ShoppingItemComponent } from './shopping-item/shopping-item.component'
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ShoppingListService } from './shopping-list/shopping-list-service'
     MainCarouselComponent,
     HomeComponent,
     ShoppingListComponent,
-    FilterComponent
+    FilterComponent,
+    ShoppingItemComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [ShoppingListService],
