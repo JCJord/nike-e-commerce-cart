@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Params } from '@angular/router'
 import { Shoes } from '../shopping-list/shoes.model'
+
 import { ShoppingListService } from '../shopping-list/shopping-list-service'
+
 
 @Component({
   selector: 'app-shopping-item',
