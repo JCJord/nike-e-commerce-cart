@@ -1,4 +1,4 @@
-@import "../../../variables";
+@import "../../../../variables.scss";
 @import "../mobile-nav/mobile-nav.component.scss";
 @mixin flexSpace($content) {
   justify-content: $content;
