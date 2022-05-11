@@ -8,6 +8,7 @@ import { CarouselComponent } from './carousel/carousel.component'
   declarations: [MainCarouselComponent, CarouselComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports:[MainCarouselComponent,CarouselComponent]
 })
 export class CarouselModule { }
