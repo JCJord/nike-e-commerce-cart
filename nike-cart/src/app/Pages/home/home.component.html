@@ -3,8 +3,8 @@
 
   <app-main-carousel></app-main-carousel>
   <div class="row">
-    <app-filter></app-filter>
+    <app-filter [shoes]="shoes" (filteredShoes)="filteredShoes($event)"></app-filter>
   </div>
 </div>
 
-<app-shopping-list></app-shopping-list>
+<app-shopping-list [shoes]="shoes" [shoesAmount]="shoesAmount"></app-shopping-list>

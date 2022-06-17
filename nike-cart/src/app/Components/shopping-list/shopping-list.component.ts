@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { Shoes } from './shoes.model'
-import { ShoppingListService } from './shopping-list-service'
-
 
 @Component({
   selector: 'app-shopping-list',
@@ -9,13 +7,14 @@ import { ShoppingListService } from './shopping-list-service'
   styleUrls: ['./shopping-list.component.scss']
 })
 export class ShoppingListComponent implements OnInit {
-  shoes!: Shoes[]
-  shoesAmount!: number
+  @Input()
+  shoes!: Shoes[];
 
-  constructor (private shoppingListService: ShoppingListService) {}
+  @Input()
+  shoesAmount!: number;
+
+  constructor () {}
 
   ngOnInit (): void {
-    this.shoes = this.shoppingListService.getShoes()
-    this.shoesAmount = this.shoppingListService.getAmountOfShoes()
   }
 }
