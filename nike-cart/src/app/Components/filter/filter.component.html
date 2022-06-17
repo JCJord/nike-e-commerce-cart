@@ -13,13 +13,13 @@
         aria-haspopup="true"
         aria-expanded="false"
       >
-        Ordenar por <span class="text-muted">Lançamentos</span>
+        Ordenar por <span class="text-muted">{{ selectedFilter }}</span>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Preço</a>
-        <a class="dropdown-item" href="#">Lançamento</a>
-        <a class="dropdown-item" href="#">Masculino</a>
-        <a class="dropdown-item" href="#">Feminino</a>
+        <a class="dropdown-item" (click)="selectFilter('Preço')" href="#">Preço</a>
+        <a class="dropdown-item" (click)="selectFilter('Lançamento')" href="#">Lançamento</a>
+        <a class="dropdown-item" (click)="selectFilter('Masculino')" href="#">Masculino</a>
+        <a class="dropdown-item" (click)="selectFilter('Feminino')" href="#">Feminino</a>
       </div>
     </div>
   </div>
