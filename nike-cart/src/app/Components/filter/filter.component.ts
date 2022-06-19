@@ -37,6 +37,7 @@ export class FilterComponent implements OnInit {
     }
 
     else if(this.selectedFilter === 'Lançamento') {
+      this.getShoes();
       this.shoes = this.shoes.filter(filter => filter.release != false);
       this.filteredShoes.emit(this.shoes);
     } 

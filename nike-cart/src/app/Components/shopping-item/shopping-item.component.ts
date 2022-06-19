@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Params } from '@angular/router'
+import { CartServiceService } from 'src/app/Pages/cart/cart-service.service'
 import { Shoes } from '../shopping-list/shoes.model'
 
 import { ShoppingListService } from '../shopping-list/shopping-list-service'
@@ -15,7 +16,8 @@ export class ShoppingItemComponent implements OnInit {
   id!: number
   constructor (
     private shoppingListService: ShoppingListService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cartService:CartServiceService
   ) {}
 
   ngOnInit (): void {
@@ -23,5 +25,9 @@ export class ShoppingItemComponent implements OnInit {
       this.id = +params['id']
       this.item = this.shoppingListService.getItem(this.id)
     })
+  }
+
+  addToCart() {
+    this.cartService.addShoes(this.item);
   }
 }

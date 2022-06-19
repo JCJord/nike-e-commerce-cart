@@ -9,7 +9,9 @@ import { CarouselModule } from './Components/main-carousel/carousel.module'
 import { ShoppingItemComponent } from './Components/shopping-item/shopping-item.component'
 import { ShoppingListService } from './Components/shopping-list/shopping-list-service'
 import { ShoppingListComponent } from './Components/shopping-list/shopping-list.component'
-import { HomeComponent } from './Pages/home/home.component'
+import { HomeComponent } from './Pages/home/home.component';
+import { CartComponent } from './Pages/cart/cart.component';
+import { ItemComponent } from './Pages/item/item.component'
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { HomeComponent } from './Pages/home/home.component'
     HomeComponent,
     ShoppingListComponent,
     FilterComponent,
-    ShoppingItemComponent
+    ShoppingItemComponent,
+    CartComponent,
+    ItemComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HeaderModule, CarouselModule],
   providers: [ShoppingListService],

@@ -11,7 +11,7 @@
     </ul>
   </div>
   <div class="item" *ngFor="let shoe of shoes; let i = index">
-    <a [routerLink]="['/' + i]">
+    <a [routerLink]="['item/' + i]">
       <img [src]="shoe.imgUrl" alt="" />
       <h3>{{ shoe.name }}</h3>
       <h4 class="text-muted">{{ shoe.type }}</h4>
@@ -19,6 +19,6 @@
 
       <p class="color-item">1 Cor</p></a
     >
-    <a [routerLink]="['/' + i]" class="item-button">COMPRAR</a>
+    <a [routerLink]="['item/' + i]" class="item-button">COMPRAR</a>
   </div>
 </div>
