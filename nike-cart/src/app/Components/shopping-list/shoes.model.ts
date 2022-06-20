@@ -1,6 +1,6 @@
 export class Shoes {
   public name!: string
-  public genre!: string
+  public gender!: string
   public type!: string
   public release!: boolean
   public color!: string
@@ -10,7 +10,7 @@ export class Shoes {
 
   constructor (
     name: string,
-    genre: string,
+    gender: string,
     type: string,
     release: boolean,
     color: string,
@@ -19,7 +19,7 @@ export class Shoes {
     size: Array<number>
   ) {
     this.name = name
-    this.genre = genre
+    this.gender = gender
     this.type = type
     this.release = release
     this.color = color

@@ -32,7 +32,7 @@ export class FilterComponent implements OnInit {
     }
     else if(this.selectedFilter === 'Masculino') {
       this.getShoes();
-      this.shoes = this.shoes.filter(filter => filter.genre === 'Masculino');
+      this.shoes = this.shoes.filter(filter => filter.gender === 'Masculino' || filter.gender === 'Unissex');
       this.filteredShoes.emit(this.shoes);
     }
 

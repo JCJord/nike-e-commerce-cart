@@ -51,7 +51,7 @@
 .shopping-list {
   display: grid;
 
-  grid-template-areas: "sidenav item item item" "sidenav item item item" "sidenav item item item" "sidenav item item item";
+  grid-template-areas: "sidenav item item item item" "sidenav item item item item" "sidenav item item item item" "sidenav item item item item";
   grid-gap: 20px;
 }
 img {
@@ -98,27 +98,34 @@ img {
   margin-top: 30px;
 }
 
-@media only screen and (max-width: 875px) {
-}
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1024px) {
   .shoes-filter {
     display: none;
   }
-}
-@media only screen and (max-width: 1024px) {
+
   .shopping-list {
     display: grid;
 
-    grid-template-areas: "item item" " item item" "item item" "item item";
+    grid-template-areas: "item item" " item item" "item item" "item item" !important;
   }
+
   .item {
-    max-width: 500px;
-    min-width: 100px;
+    max-width: 500px !important;
+    min-width: 100px !important;
   }
+
   .sidenav {
     display: none;
   }
+
   .item-button {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 1216px) {
+
+  .shopping-list {
+    grid-template-areas: "sidenav item item item" "sidenav item item item" "sidenav item item item" "sidenav item item item";
   }
 }

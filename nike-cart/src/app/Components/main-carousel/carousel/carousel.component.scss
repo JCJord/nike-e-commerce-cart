@@ -1,77 +1,52 @@
 @import "../../../../variables.scss";
 
-.carousel {
-  background: $white;
-  height: 52px;
-  border-bottom: 1px solid $lightGrey;
-}
-.carousel-item {
-  text-align: center;
-  color: $black;
-  margin-top: 6px;
-  font-size: 13px;
-  cursor: auto;
-}
-.carousel-item img {
-  position: relative;
-  width: 40px;
-  right: 20px;
-}
-u {
-  font-size: 11px;
-}
-.arrow {
-  border: 1px solid $black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 5px;
+.swiper-wrapper {
+  margin-top: 106px;
+  border-top: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+  background: #f7f7f7;
+  .swiper-container {
+    margin: 0 auto;
+    max-width: 750px;
+    height: auto;
+    .swiper-info {
+      text-align: center;
+      font-size: 14px;
+      u {
+        font-size: 12px;
+      }
+      .swiper-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 40px;
+          right: 20px;
+        }
+      }
+    }
+  }
 }
 
-.right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-.left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-}
-.carousel-wrapper {
-  padding-top: 110px;
+@media only screen and (max-width: 1024px) {
+  .swiper-wrapper {
+    background: #111111;
+
+    .swiper-info {
+      color: #fff;
+    }
+  }
 }
 @media only screen and (max-width: 992px) {
-  .carousel {
-    background: $black;
-    height: auto;
-  }
-  .carousel-item {
-    text-align: center;
-    color: $white;
-    font-size: 13px;
-    cursor: auto;
-    padding: 15px;
-    margin-top: 0;
-  }
-  .carousel-item img {
-    display: none;
-  }
-  .arrow {
-    border: 1px solid $white;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 5px;
-  }
-
-  .right {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-  }
-  .left {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
+  .swiper-container {
+    max-width: 100% !important;
   }
 }
 @media only screen and (max-width: 425px) {
-  .carousel-item {
-    font-size: 3vw;
+  .swiper-item {
+    font-size: 3.4vw !important;
+    img { 
+      display: none;
+    }
   }
 }
