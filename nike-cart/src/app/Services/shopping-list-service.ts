@@ -1,4 +1,4 @@
-import { Shoes } from './shoes.model'
+import { Shoes } from '../Components/shopping-list/shoes.model'
 
 export class ShoppingListService {
   shoes: Shoes[] = [

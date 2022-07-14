@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Shoes } from '../shopping-list/shoes.model';
-import { ShoppingListService } from '../shopping-list/shopping-list-service';
+import { ShoppingListService } from '../../Services/shopping-list-service';
 
 @Component({
   selector: 'app-filter',

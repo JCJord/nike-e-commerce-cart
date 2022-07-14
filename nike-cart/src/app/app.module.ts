@@ -8,7 +8,7 @@ import { HeaderModule } from './Components/header/header.module'
 import { CarouselModule } from './Components/main-carousel/carousel.module'
 
 import { ShoppingItemComponent } from './Components/shopping-item/shopping-item.component'
-import { ShoppingListService } from './Components/shopping-list/shopping-list-service'
+import { ShoppingListService } from './Services/shopping-list-service'
 import { ShoppingListComponent } from './Components/shopping-list/shopping-list.component'
 import { HomeComponent } from './Pages/home/home.component';
 import { CartComponent } from './Pages/cart/cart.component';
