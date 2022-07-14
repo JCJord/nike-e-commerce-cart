@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Params } from '@angular/router'
 import { CartServiceService } from 'src/app/Services/cart-service.service'
-import { Shoes } from '../shopping-list/shoes.model'
+import { Shoes } from '../shoes.model'
 
-import { ShoppingListService } from '../../Services/shopping-list-service'
+import { ShoppingListService } from '../../../Services/shopping-list-service'
 
 
 @Component({

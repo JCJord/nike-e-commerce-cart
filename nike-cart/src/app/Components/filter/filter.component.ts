@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Shoes } from '../shopping-list/shoes.model';
+import { Shoes } from 'src/app/Components/shopping/shoes.model';
 import { ShoppingListService } from '../../Services/shopping-list-service';
 
 @Component({

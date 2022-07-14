@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
-import { ShoppingItemComponent } from './Components/shopping-item/shopping-item.component'
+import { ShoppingItemComponent } from './Components/shopping/shopping-item/shopping-item.component'
 import { CartComponent } from './Pages/cart/cart.component'
 import { HomeComponent } from './Pages/home/home.component'
 import { ItemComponent } from './Pages/item/item.component'
