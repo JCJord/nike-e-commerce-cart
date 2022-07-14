@@ -8,7 +8,7 @@ import { CarouselComponent } from './carousel/carousel.component'
   declarations: [MainCarouselComponent, CarouselComponent],
   imports: [
     CommonModule,
-    SwiperModule
+    SwiperModule,
   ],
   exports:[MainCarouselComponent,CarouselComponent]
 })
