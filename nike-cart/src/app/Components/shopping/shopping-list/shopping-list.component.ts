@@ -13,8 +13,19 @@ export class ShoppingListComponent implements OnInit {
   @Input()
   shoesAmount!: number;
 
+  @Input()
+  gridSize: number = 4;
   constructor () {}
-
+  
   ngOnInit (): void {
+  }
+
+  filteredShoes(newShoes: Shoes[]) {
+    this.shoes = newShoes;
+  }
+
+  selectedGrid(gridColSize: number) {
+    this.gridSize = gridColSize;
+    console.log(gridColSize);
   }
 }

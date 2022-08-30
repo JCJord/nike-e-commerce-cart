@@ -1,4 +1,5 @@
-<div class="container shopping-list">
+<app-filter [shoes]="shoes" (filteredShoes)="filteredShoes($event)" (selectedGrid)="selectedGrid($event)"></app-filter>
+<div class="container shopping-list" [ngClass]="{'grid-2': gridSize == 2, 'grid-3': gridSize == 3}">
   <div class="sidenav">
     <h3>Calçados ({{ shoesAmount }})</h3>
     <h4>TIPOS DE CALÇADOS</h4>

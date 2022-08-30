@@ -1,0 +1,65 @@
+<div class="filterbox">
+  <div class="filter-items d-flex">
+    <div class="grid-icons d-flex">
+
+      <div class="grid-icon-2 d-flex me-3" (click)="selectGridSize(2)">
+        <div class="square">
+
+        </div>
+        <div class="square">
+
+        </div>
+      </div>
+
+      <div class="grid-icon-3 d-flex me-3" (click)="selectGridSize(3)">
+        <div class="square">
+
+        </div>
+        <div class="square">
+
+        </div>
+        <div class="square">
+
+        </div>
+      </div>
+
+      <div class="grid-icon-4 me-3 d-flex" (click)="selectGridSize(4)">
+        <div class="square">
+
+        </div>
+        <div class="square">
+
+        </div>
+        <div class="square">
+
+        </div>
+        <div class="square">
+
+        </div>
+      </div>
+      
+    </div>
+    <div class="filter-selector">
+      Filtros <img src="../../assets/images/adjust.svg" alt="" />
+    </div>
+
+    <div class="dropdown">
+      <button
+        class="btn dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Ordenar por <span class="text-muted">{{ selectedFilter }}</span>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" (click)="selectFilter('Preço')">Preço</a>
+        <a class="dropdown-item" (click)="selectFilter('Lançamento')">Lançamento</a>
+        <a class="dropdown-item" (click)="selectFilter('Masculino')">Masculino</a>
+        <a class="dropdown-item" (click)="selectFilter('Feminino')">Feminino</a>
+      </div>
+    </div>
+  </div>
+</div>

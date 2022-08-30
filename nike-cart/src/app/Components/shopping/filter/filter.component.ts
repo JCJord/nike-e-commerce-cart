@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Shoes } from 'src/app/Components/shopping/shoes.model';
-import { ShoppingListService } from '../../Services/shopping-list-service';
+import { ShoppingListService } from 'src/app/Services/shopping-list-service';
 
 @Component({
   selector: 'app-filter',
@@ -16,9 +16,13 @@ export class FilterComponent implements OnInit {
   @Output()
   filteredShoes = new EventEmitter<Shoes[]>();
 
+  @Output()
+  selectedGrid = new EventEmitter<number>();
+
   constructor(private shoppingListService:ShoppingListService) { }
 
   ngOnInit(): void {
+    this.getShoes();
     this.shoes.sort((a,b) => (a.price > b.price)? 1 : ((b.price > a.price) ? -1 : 0));
   }
 
@@ -41,6 +45,10 @@ export class FilterComponent implements OnInit {
       this.shoes = this.shoes.filter(filter => filter.release != false);
       this.filteredShoes.emit(this.shoes);
     } 
+  }
+
+  selectGridSize(gridColSize: number) {
+    this.selectedGrid.emit(gridColSize);
   }
 
   getShoes() {

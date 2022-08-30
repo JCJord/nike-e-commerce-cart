@@ -55,6 +55,38 @@
   grid-gap: 30px;
   column-gap: 20px;
 }
+
+.grid-2 {
+  grid-template-areas: 
+  "sidenav item item" 
+  "sidenav item item"
+  "sidenav item item" 
+  "sidenav item item" 
+  "sidenav item item" 
+  ;
+  grid-gap: 30px;
+  column-gap: 20px;
+  .item {
+    max-width: none;
+    min-width: none;
+    height: auto;
+  }
+}
+.grid-3 {
+  grid-template-areas: 
+  "sidenav item item item" 
+  "sidenav item item item"
+  "sidenav item item item" 
+  "sidenav item item item" 
+  "sidenav item item item" 
+  ;
+  grid-gap: 30px;
+  column-gap: 20px;
+  .item {
+    max-width: none;
+    min-width: none;
+  }
+}
 img {
   width: 100%;
   max-height: 425px;

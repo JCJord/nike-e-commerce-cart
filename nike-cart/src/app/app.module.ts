@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
-import { FilterComponent } from './Components/filter/filter.component'
 import { HeaderModule } from './Components/header/header.module'
 import { CarouselModule } from './Components/main-carousel/carousel.module'
 
@@ -17,7 +16,6 @@ import { ShoppingModule } from './Components/shopping/shopping.module'
   declarations: [
     AppComponent,
     HomeComponent,
-    FilterComponent,
     CartComponent,
     ItemComponent
   ],
