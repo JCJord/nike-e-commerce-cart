@@ -6,6 +6,7 @@ export class Shoes {
   public color!: string
   public price!: number
   public imgUrl!: string
+  public itemImgs!: Array<string>
   public size!: Array<number>
 
   constructor (
@@ -16,15 +17,17 @@ export class Shoes {
     color: string,
     price: number,
     imgUrl: string,
+    itemImgs: Array<string>,
     size: Array<number>
   ) {
-    this.name = name
-    this.gender = gender
-    this.type = type
-    this.release = release
-    this.color = color
-    this.price = price
-    this.imgUrl = imgUrl
-    this.size = size
+    this.name = name;
+    this.gender = gender;
+    this.type = type;
+    this.release = release;
+    this.color = color;
+    this.price = price;
+    this.imgUrl = imgUrl;
+    this.itemImgs = itemImgs;
+    this.size = size;
   }
 }
