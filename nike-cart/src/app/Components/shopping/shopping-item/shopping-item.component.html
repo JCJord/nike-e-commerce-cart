@@ -1,9 +1,13 @@
 <div class="item-container">
-  <div class="d-flex mt-5">
-    <div class="border w-100">
-      <img [src]="item.imgUrl" class="w-50" alt="">
+  <div class="d-flex item-box mt-5">
+    <div class="w-100">
+      <ng-container *ngFor="let imgs of item.itemImgs" class="d-flex">
+       
+          <img [src]="imgs" class="img-flex m-2" alt="">
+        
+      </ng-container>
     </div>
-    <div class="item-info border">
+    <div class="item-info">
       <h1>{{ item.name }}</h1>
       <p class="mt-3">R${{item.price}}</p>
       <div class="mt-3">

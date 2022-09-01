@@ -1,10 +1,8 @@
 @import "../../../../variables";
 
-.item a p {
-  margin-top: -4px;
-}
-.item h3 {
-  font-size: 16px;
+.shopping-container {
+  margin: 0 auto;
+  max-width: 1600px;
 }
 .sidenav h3 {
   font-size: 24px;
@@ -35,9 +33,7 @@
   text-decoration: none;
   color: $black;
 }
-.row img {
-  width: 100%;
-}
+
 .text-muted {
   font-size: 14px;
   font-weight: bold;
@@ -49,94 +45,109 @@
 }
 
 .shopping-list {
-  display: grid;
-
-  grid-template-areas: "sidenav item item item item" "sidenav item item item item" "sidenav item item item item" "sidenav item item item item";
-  grid-gap: 30px;
+  display:grid;
+  grid-template-areas: "item item item item" "item item item item" "item item item item" "item item item item";
+  grid-gap: 60px;
   column-gap: 20px;
+  grid-auto-columns: minmax(0, 1fr);
+
 }
 
 .grid-2 {
   grid-template-areas: 
-  "sidenav item item" 
-  "sidenav item item"
-  "sidenav item item" 
-  "sidenav item item" 
-  "sidenav item item" 
-  ;
-  grid-gap: 30px;
-  column-gap: 20px;
-  .item {
-    max-width: none;
-    min-width: none;
-    height: auto;
-  }
+  "item item" 
+  "item item"
+  "item item" 
+  "item item" 
+  "item item";
 }
 .grid-3 {
   grid-template-areas: 
-  "sidenav item item item" 
-  "sidenav item item item"
-  "sidenav item item item" 
-  "sidenav item item item" 
-  "sidenav item item item" 
-  ;
-  grid-gap: 30px;
-  column-gap: 20px;
-  .item {
-    max-width: none;
-    min-width: none;
-  }
+  "item item item" 
+  "item item item"
+  "item item item" 
+  "item item item" 
+  "item item item";
+
+
+}
+
+.grid-4 {
+  grid-template-areas: 
+  "item item item item" 
+  "item item item item"
+  "item item item item" 
+  "item item item item" 
+  "item item item item";
+
 }
 img {
   width: 100%;
-  max-height: 425px;
+}
+
+.loader-img {
+  height: 278px;
+  background: rgb(243, 243, 243);
+  
 }
 .sidenav {
-  max-width: 300px;
-  min-width: 200px;
-  width: 300px;
+  width: 304px;
   height: auto;
-
-  grid-area: "sidenav";
-  grid-row: sidenav;
-}
-.item-button {
-  visibility: hidden;
-  position: absolute;
-  padding: 8px;
-
-  text-align: center;
-  bottom: 143px;
-  font-weight: bold;
-  font-size: 12px;
-  background-color: $black;
-  border-radius: 3px;
-  color: $white !important;
-  width: 100% !important;
 }
 
 .item {
-  max-width: 340px;
-  min-width: 200px;
-  height: auto;
-
-  grid-area: "item";
-  position: relative;
+  min-height: 285px; 
+  
+  .item-button {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: .2s ease-in-out;
+    padding: 8px; 
+    bottom: 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    background-color: $black;
+    border-radius: 3px;
+    color: $white !important;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 999;
+  }
+  .img-box {
+    position: relative;
+    height: auto;
+    img {
+      position: relative;
+      max-width: 100% !important;
+      min-width: 100px !important;
+      height: 100%; 
+    }
+  }
+  h3 {
+    font-size: 16px;
+    margin-top:5px;
+  }
   &:hover .item-button {
     visibility: visible;
+    opacity: 1;
   }
 }
 
-.item a h3 {
-  margin-top: 30px;
-}
 
 @media only screen and (max-width: 1024px) {
+  app-filter {
+    display: none;
+  }
   .shoes-filter {
     display: none;
   }
 
   .shopping-list {
+    margin-top: 25px;
     display: grid;
 
     grid-template-areas: "item item" " item item" "item item" "item item" !important;
@@ -153,12 +164,5 @@ img {
 
   .item-button {
     display: none;
-  }
-}
-
-@media only screen and (max-width: 1216px) {
-
-  .shopping-list {
-    grid-template-areas: "sidenav item item item" "sidenav item item item" "sidenav item item item" "sidenav item item item";
   }
 }

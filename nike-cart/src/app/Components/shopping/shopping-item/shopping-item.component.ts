@@ -25,6 +25,8 @@ export class ShoppingItemComponent implements OnInit {
       this.id = +params['id']
       this.item = this.shoppingListService.getItem(this.id)
     })
+
+    console.log(this.item)
   }
 
   addToCart() {

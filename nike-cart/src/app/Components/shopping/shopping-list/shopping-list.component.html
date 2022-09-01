@@ -1,6 +1,6 @@
 <app-filter [shoes]="shoes" (filteredShoes)="filteredShoes($event)" (selectedGrid)="selectedGrid($event)"></app-filter>
-<div class="container shopping-list" [ngClass]="{'grid-2': gridSize == 2, 'grid-3': gridSize == 3}">
-  <div class="sidenav">
+<div class="shopping-container px-3 d-flex">
+  <div class="sidenav me-3" style="border: 1px solid blue;">
     <h3>Calçados ({{ shoesAmount }})</h3>
     <h4>TIPOS DE CALÇADOS</h4>
     <ul>
@@ -11,15 +11,23 @@
       <li>SkateBoarding (20)</li>
     </ul>
   </div>
-  <div class="item" *ngFor="let shoe of shoes; let i = index">
-    <a [routerLink]="['item/' + i]">
-      <img [src]="shoe.imgUrl" alt="" />
-      <h3>{{ shoe.name }}</h3>
-      <h4 class="text-muted">{{ shoe.type }}</h4>
-      <p>R$ {{ shoe.price }}</p>
-
-      <p class="color-item">1 Cor</p></a
-    >
-    <a [routerLink]="['item/' + i]" class="item-button">COMPRAR</a>
+  <div class="shopping-container w-100 shopping-list" [ngClass]="gridStyles(gridSize)">
+    <div class="item w-100" *ngFor="let shoe of shoes; let i = index">
+      <div style="cursor: pointer;  transition: all .3s ease-in-out;" [routerLink]="['item/' + i]">
+        <div class="img-box w-100" style="  transition: all .3s ease-in-out;">
+          <div *ngIf="isLoading" class="loader-img w-100"></div>
+          <img [hidden]="isLoading" (load)="onLoad()" class="img-fluid" [src]="shoe.imgUrl" alt="" />
+          <a  [routerLink]="['item/' + i]" class="item-button w-100 mx-auto">COMPRAR</a>
+        </div>
+  
+        <div>
+          <h3>{{ shoe.name }}</h3>
+          <h4 class="text-muted">{{ shoe.type }}</h4>
+          <p>R$ {{ shoe.price }}</p>
+        </div>
+      
+      </div>
+    </div>
   </div>
+
 </div>

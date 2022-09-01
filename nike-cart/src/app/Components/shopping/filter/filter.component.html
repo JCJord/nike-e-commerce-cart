@@ -2,7 +2,7 @@
   <div class="filter-items d-flex">
     <div class="grid-icons d-flex">
 
-      <div class="grid-icon-2 d-flex me-3" (click)="selectGridSize(2)">
+      <div class="grid-icon-2 d-flex me-3" [ngClass]="{'selected-square': activeGrid == 2}" (click)="selectGridSize(2)">
         <div class="square">
 
         </div>
@@ -11,7 +11,7 @@
         </div>
       </div>
 
-      <div class="grid-icon-3 d-flex me-3" (click)="selectGridSize(3)">
+      <div class="grid-icon-3 d-flex me-3" [ngClass]="{'selected-square': activeGrid == 3}" (click)="selectGridSize(3)">
         <div class="square">
 
         </div>
@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <div class="grid-icon-4 me-3 d-flex" (click)="selectGridSize(4)">
+      <div class="grid-icon-4 me-3 d-flex" [ngClass]="{'selected-square': activeGrid == 4}" (click)="selectGridSize(4)">
         <div class="square">
 
         </div>

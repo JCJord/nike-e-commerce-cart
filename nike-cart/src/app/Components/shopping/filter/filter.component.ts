@@ -9,6 +9,7 @@ import { ShoppingListService } from 'src/app/Services/shopping-list-service';
 })
 export class FilterComponent implements OnInit {
   selectedFilter = 'Preço'
+  activeGrid!: number;
 
   @Input()
   shoes!: Shoes[];
@@ -49,6 +50,7 @@ export class FilterComponent implements OnInit {
 
   selectGridSize(gridColSize: number) {
     this.selectedGrid.emit(gridColSize);
+    this.activeGrid = gridColSize;
   }
 
   getShoes() {

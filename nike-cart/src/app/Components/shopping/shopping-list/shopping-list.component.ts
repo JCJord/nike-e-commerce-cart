@@ -6,7 +6,7 @@ import { Shoes } from '../shoes.model'
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.scss']
 })
-export class ShoppingListComponent implements OnInit {
+export class ShoppingListComponent {
   @Input()
   shoes!: Shoes[];
 
@@ -15,10 +15,10 @@ export class ShoppingListComponent implements OnInit {
 
   @Input()
   gridSize: number = 4;
+
+  isLoading = true;
+
   constructor () {}
-  
-  ngOnInit (): void {
-  }
 
   filteredShoes(newShoes: Shoes[]) {
     this.shoes = newShoes;
@@ -28,4 +28,20 @@ export class ShoppingListComponent implements OnInit {
     this.gridSize = gridColSize;
     console.log(gridColSize);
   }
+
+  gridStyles(gridColSize: number) {
+    if(gridColSize == 2) {
+      return 'grid-2';
+    } 
+    if(gridColSize == 3) {
+      return 'grid-3';
+    } else {
+      return 'grid-4';
+    }
+  }
+
+  onLoad() {
+    this.isLoading = false;
+  }
+
 }
