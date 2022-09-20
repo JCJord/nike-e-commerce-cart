@@ -1,36 +1,47 @@
 <div class="desk-nav">
-  <div class="container d-flex">
-    <div class="logo"><img src="../../../assets/images/nike.png" alt="" /></div>
-    <div class="desk-links dropdown">
-      <a href="" class="desk-link">DÊ ESPORTIVOS</a>
-      <a href="" class="desk-link">LANÇAMENTOS</a>
-      <a href="" class="desk-link">FEMININO</a>
-      <a href="" class="desk-link">MASCULINO</a>
-      <a href="" class="desk-link">INFANTIL</a>
-      <a href="" class="desk-link">SNKRS</a>
-      <a href="" class="desk-link">OFERTAS</a>
-      <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-      </div>
-    </div>
-
-    <div class="input-box">
-      <div class="more-links d-flex">
-        <div class="input-group-prepend">
-          <button class="btn btn-outline-secondary search-btn" type="button">
-            <img src="../../../assets/images/search.svg" alt="" />
-          </button>
+  <div class="container d-flex justify-content-between" style="background: #fff; transition: all .2s ease">
+      <div class="w-75 d-flex align-items-center justify-content-between">
+      
+        <div style="z-index: 999; min-width: 60px; min-height: 60px; transition: all .2s ease" class="logo"><img src="../../../assets/images/nike.png" alt="" /></div>
+        <div class="desk-links dropdown">
+          <a href="" class="desk-link">DÊ ESPORTIVOS</a>
+          <a href="" class="desk-link">LANÇAMENTOS</a>
+          <a href="" class="desk-link">FEMININO</a>
+          <a href="" class="desk-link">MASCULINO</a>
+          <a href="" class="desk-link">INFANTIL</a>
+          <a href="" class="desk-link">SNKRS</a>
+          <a href="" class="desk-link">OFERTAS</a>
+          <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
         </div>
-        <input
-          type="text"
-          class="form-control search-input"
-          placeholder="O que você procura?"
-          aria-label=""
-          aria-describedby="basic-addon1"
-        />
+      
       </div>
-    </div>
+
+
+      <div class="input-box position-absolute" (click)="focusInput()" [@openClose]="focusSearchOn ? 'open' : 'closed'"  style="top: 53px; right:0;width:230px; transition: all .2s ease-in-out;" [ngClass]="{'search-over-animation': focusSearchOn}">
+        <div class="more-links d-flex" >
+          <div class="position-relative mx-auto">
+            <div class="fit-content d-flex">
+              <div class="input-group-prepend search-button-style">
+                <button class="btn btn-outline-secondary search-btn search-button-style" style="min-width: 41px; min-height:38px" type="button">
+                  <img style="min-width: 16px; min-height:16px" src="../../../assets/images/search.svg" alt="" />
+                </button>
+              </div>
+              <input
+                type="text"
+                class="form-control search-input"
+                placeholder="O que você procura?"
+                aria-label=""
+                aria-describedby="basic-addon1"
+                style="transition: ALL .2s ease-in-out !important;"
+                [ngClass]="{'search-on-width': focusSearchOn}"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
 </div>

@@ -1,12 +1,11 @@
 @import "../../../../variables.scss";
 @import "../mobile-nav/mobile-nav.component.scss";
 @mixin flexSpace($content) {
-  justify-content: $content;
   align-items: center;
 }
 
 .desk-nav .container {
-  @include flexSpace(space-between);
+  @include flexSpace(space-around);
   padding: 5px;
 }
 .desk-nav {
@@ -24,6 +23,16 @@
 
 .search-input {
   width: 170px;
+  background: rgb(241, 241, 241);
+  border-bottom-right-radius: 18px;
+  border-top-right-radius: 18px;
+
+}
+
+.search-button-style {
+  border-bottom-left-radius: 18px;
+  border-top-left-radius: 18px;
+  background: rgb(241, 241, 241);
 }
 
 .desk-links {
@@ -85,6 +94,24 @@
 }
 .desk-nav {
   background: $white;
+}
+
+.search-on-width {
+  width: 500px;
+}
+
+.search-over-animation {
+  position: absolute;
+  right: 0;
+  top: 53px;
+  background: rgb(255, 255, 255);
+  width: 100% !important;
+  
+}
+
+.move-header-up {
+
+  transform: translateY(-52px);
 }
 
 @media only screen and (max-width: 1155px) {
