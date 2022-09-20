@@ -4,7 +4,7 @@
       <ng-container *ngFor="let imgs of item.itemImgs">
         <div class="w-100 item">
           <div *ngIf="isLoading" class="loader-img w-100"></div>
-          <img [src]="imgs" (load)="onLoad()" alt="">
+          <img [hidden]="isLoading" [src]="imgs" (load)="onLoad()" alt="">
         </div>
       </ng-container>
     </div>
