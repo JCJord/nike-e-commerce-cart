@@ -14,6 +14,8 @@ import { ShoppingListService } from '../../../Services/shopping-list-service'
 export class ShoppingItemComponent implements OnInit {
   item!: Shoes
   id!: number
+  isLoading = true;
+  
   constructor (
     private shoppingListService: ShoppingListService,
     private route: ActivatedRoute,
@@ -31,5 +33,9 @@ export class ShoppingItemComponent implements OnInit {
 
   addToCart() {
     this.cartService.addShoes(this.item);
+  }
+
+  onLoad() {
+    this.isLoading = false;
   }
 }
