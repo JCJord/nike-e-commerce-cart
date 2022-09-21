@@ -16,10 +16,14 @@ export class ShoppingListComponent {
   @Input()
   gridSize: number = 4;
 
+  loaded = 0;
   isLoading = true;
 
   constructor () {}
 
+  ngOnInit() {
+    console.log(this.shoes)
+  }
   filteredShoes(newShoes: Shoes[]) {
     this.shoes = newShoes;
   }
@@ -41,7 +45,10 @@ export class ShoppingListComponent {
   }
 
   onLoad() {
-    this.isLoading = false;
+    this.loaded++;
+    if(this.shoes.length == this.loaded){
+      this.isLoading = false;
+    }
   }
 
 }

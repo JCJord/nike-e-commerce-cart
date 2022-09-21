@@ -14,8 +14,8 @@ import { ShoppingListService } from '../../../Services/shopping-list-service'
 export class ShoppingItemComponent implements OnInit {
   item!: Shoes
   id!: number
+  loaded = 0;
   isLoading = true;
-  
   constructor (
     private shoppingListService: ShoppingListService,
     private route: ActivatedRoute,
@@ -27,8 +27,6 @@ export class ShoppingItemComponent implements OnInit {
       this.id = +params['id']
       this.item = this.shoppingListService.getItem(this.id)
     })
-
-    console.log(this.item)
   }
 
   addToCart() {
@@ -36,6 +34,10 @@ export class ShoppingItemComponent implements OnInit {
   }
 
   onLoad() {
-    this.isLoading = false;
+    this.loaded++;
+
+    if(this.item.itemImgs.length == this.loaded){
+      this.isLoading = false;
+    }
   }
 }

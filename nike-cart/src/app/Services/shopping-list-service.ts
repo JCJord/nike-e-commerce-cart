@@ -99,7 +99,7 @@ export class ShoppingListService {
       'branco',
       229.99,
       '../../assets/images/shoes/offcourt-slide.webp',
-      ['../../assets/images/shoes/offcourt-slide.webp','https://imgnike-a.akamaihd.net/1300x1300/006582IFA1.jpg','https://imgnike-a.akamaihd.net/1300x1300/006582IFA2.jpg','https://imgnike-a.akamaihd.net/1300x1300/006582IFA3.jpg','https://imgnike-a.akamaihd.net/1300x1300/006582IFA4.jpg'],
+      ['../../assets/images/shoes/offcourt-slide.webp','../../assets/images/shoes/offcourt-slide-2.webp','https://imgnike-a.akamaihd.net/1300x1300/006582IFA2.jpg','https://imgnike-a.akamaihd.net/1300x1300/006582IFA3.jpg','https://imgnike-a.akamaihd.net/1300x1300/006582IFA4.jpg'],
       [39, 40, 41, 42]
     ),
     new Shoes(
