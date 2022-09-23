@@ -12,7 +12,7 @@ import { ShoppingListService } from '../../../Services/shopping-list-service'
   styleUrls: ['./shopping-item.component.scss']
 })
 export class ShoppingItemComponent implements OnInit {
-  item!: Shoes
+  item!: any
   id!: number
   loaded = 0;
   isLoading = true;
@@ -24,8 +24,11 @@ export class ShoppingItemComponent implements OnInit {
 
   ngOnInit (): void {
     this.route.params.subscribe((params: Params) => {
-      this.id = +params['id']
+      this.id =+ params['id']
       this.item = this.shoppingListService.getItem(this.id)
+      console.log(this.id)
+
+      console.log(this.item)
     })
   }
 

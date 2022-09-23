@@ -3,6 +3,7 @@ import { Shoes } from '../Components/shopping/shoes.model'
 export class ShoppingListService {
   shoes: Shoes[] = [
     new Shoes(
+      0,
       'Chuteiras Nike Mercurial Superfly 8 Elite KM',
       'Unissex',
       'Adulto / Campo',
@@ -14,6 +15,7 @@ export class ShoppingListService {
       [39, 40, 41, 42]
     ),
     new Shoes(
+      1,
       'Chuteira Nike Mercurial Superfly 8 Pro KM',
       'Unissex',
       'Adulto / Campo',
@@ -25,6 +27,7 @@ export class ShoppingListService {
       [39, 40, 41, 42, 43, 44, 45]
     ),
     new Shoes(
+      2,
       'Tênis Nike Kyrie Low 4',
       'Unissex',
       'Casual',
@@ -36,6 +39,7 @@ export class ShoppingListService {
       [39, 40, 41, 42]
     ),
     new Shoes(
+      3,
       'Tênis Nike Air Max AP',
       'Masculino',
       'Casual',
@@ -48,6 +52,7 @@ export class ShoppingListService {
       [39, 40, 41, 42]
     ),
     new Shoes(
+      4,
       'Tênis Nike Blazer Low X',
       'Masculino',
       'Casual',
@@ -59,6 +64,7 @@ export class ShoppingListService {
       [39, 40, 41, 42]
     ),
     new Shoes(
+      5,
       'Tênis Nike Sportswear Blazer Low 77',
       'Masculino',
       'Casual',
@@ -70,6 +76,7 @@ export class ShoppingListService {
       [39, 40, 41, 42]
     ),
     new Shoes(
+      6,
       'Tênis Nike Air Infinity 2',
       'Masculino',
       'Casual',
@@ -81,6 +88,7 @@ export class ShoppingListService {
       [39, 40, 41, 42]
     ),
     new Shoes(
+      7,
       'Tênis Nike Winflo 8',
       'Masculino',
       'Corrida',
@@ -92,6 +100,7 @@ export class ShoppingListService {
       [39, 40, 41, 42]
     ),
     new Shoes(
+      8,
       'Chinelo Nike Offcourt',
       'Masculino',
       'Casual',
@@ -103,6 +112,7 @@ export class ShoppingListService {
       [39, 40, 41, 42]
     ),
     new Shoes(
+      9,
       'Tênis Nike Sportswear Air Max 97',
       'Masculino',
       'Casual',
@@ -124,6 +134,6 @@ export class ShoppingListService {
   }
 
   getItem (index: number) {
-    return this.shoes[index]
+    return this.shoes.find(shoe => shoe.id == index);
   }
 }

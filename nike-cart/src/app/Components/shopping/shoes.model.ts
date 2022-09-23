@@ -1,4 +1,5 @@
 export class Shoes {
+  public id!: number;
   public name!: string
   public gender!: string
   public type!: string
@@ -10,6 +11,7 @@ export class Shoes {
   public size!: Array<number>
 
   constructor (
+    id: number,
     name: string,
     gender: string,
     type: string,
@@ -20,6 +22,7 @@ export class Shoes {
     itemImgs: Array<string>,
     size: Array<number>
   ) {
+    this.id = id;
     this.name = name;
     this.gender = gender;
     this.type = type;
