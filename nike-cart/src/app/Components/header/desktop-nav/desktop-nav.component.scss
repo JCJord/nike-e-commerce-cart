@@ -114,6 +114,49 @@
   transform: translateY(-52px);
 }
 
+.custom-w {
+  width: 70%;
+}
+
+.width-on-focus {
+  width: 5% !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.show-btn {
+  width:40px !important;
+  height: 40px !important;
+  font-size: 32px !important;
+  visibility: visible;
+}
+.hide-btn {
+  width: 0px !important;
+  height: 0px !important;
+  font-size: 0px !important;
+  visibility: hidden;
+}
+.close-btn {
+  right: -250px;
+  bottom: -20px;
+  transition: all .2s ease;
+  width: 0px;
+  height: 0px;
+  font-size: 0px;
+  border-radius: 24px;
+  color: black;
+  transform: rotate(45deg);
+  cursor: pointer;
+  background: #f5f5f5;
+
+  &:hover {
+    background: #bebdbd;
+  }
+}
+
+
 @media only screen and (max-width: 1155px) {
   .desk-links {
     font-size: 1vw;

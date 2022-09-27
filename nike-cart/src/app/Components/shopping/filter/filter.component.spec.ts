@@ -31,13 +31,13 @@ fdescribe('FilterComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should filter and emit shoes array by its price', () => {
+  it('should filter and emit shoes array by lowest price', () => {
     const priceButton = el.queryAll(By.css('.dropdown-item'))[0];
     const priceFilter = component.shoes.sort((a,b) => (a.price > b.price)? 1 : ((b.price > a.price) ? -1 : 0));
 
     priceButton.triggerEventHandler("click", null);
-    expect(priceButton.nativeElement.textContent).toBe("Preço");
-    expect(component.selectedFilter).toBe("Preço");
+    expect(priceButton.nativeElement.textContent).toBe("Menor Preço");
+    expect(component.selectedFilter).toBe("Menor Preço");
     expect(component.shoes).toEqual(priceFilter);
     expect(component.filteredShoes.emit).withContext('Filtered shoes array was not emited').toHaveBeenCalledWith(component.shoes);
   });
@@ -61,6 +61,17 @@ fdescribe('FilterComponent', () => {
     expect(maleButton.nativeElement.textContent).withContext('Button label is incorrect').toBe("Masculino");
     expect(component.selectedFilter).toBe("Masculino");
     expect(component.shoes).withContext('shoes are not sorted by release').toEqual(maleFilter);
+    expect(component.filteredShoes.emit).withContext('Filtered shoes array was not emited').toHaveBeenCalledWith(component.shoes);
+  });
+
+  it('should filter and emit shoes array by larger price', () => {
+    const priceButton = el.queryAll(By.css('.dropdown-item'))[3];
+    const priceFilter = component.shoes.sort((a,b) => (a.price < b.price)? 1 : ((b.price < a.price) ? -1 : 0));
+    
+    priceButton.triggerEventHandler("click", null);
+    expect(priceButton.nativeElement.textContent).withContext('Button label is incorrect').toBe("Maior Preço");
+    expect(component.selectedFilter).toBe("Maior Preço");
+    expect(component.shoes).withContext('shoes are not sorted by Larger price').toEqual(priceFilter);
     expect(component.filteredShoes.emit).withContext('Filtered shoes array was not emited').toHaveBeenCalledWith(component.shoes);
   });
 

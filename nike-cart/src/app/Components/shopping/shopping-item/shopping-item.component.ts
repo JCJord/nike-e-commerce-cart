@@ -26,9 +26,6 @@ export class ShoppingItemComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.id =+ params['id']
       this.item = this.shoppingListService.getItem(this.id)
-      console.log(this.id)
-
-      console.log(this.item)
     })
   }
 

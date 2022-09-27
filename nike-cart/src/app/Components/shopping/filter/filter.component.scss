@@ -48,6 +48,10 @@
   }
 }
 
+.dropdown-item {
+  cursor: pointer !important;
+}
+
 @media only screen and (max-width: 400px) {
   .dropdown {
     display: none;

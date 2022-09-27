@@ -8,7 +8,7 @@ import { ShoppingListService } from 'src/app/Services/shopping-list-service';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent implements OnInit {
-  selectedFilter = 'Preço'
+  selectedFilter = 'Menor Preço'
   activeGrid!: number;
 
   @Input()
@@ -29,12 +29,19 @@ export class FilterComponent implements OnInit {
 
   selectFilter(filter: string) {
     this.selectedFilter = filter;
-
-    if(this.selectedFilter === 'Preço') {
+    
+    if(this.selectedFilter === 'Menor Preço') {
       this.getShoes();
       this.shoes.sort((a,b) => (a.price > b.price)? 1 : ((b.price > a.price) ? -1 : 0));
       this.filteredShoes.emit(this.shoes);
     }
+
+    else if(this.selectedFilter === 'Maior Preço') {
+      this.getShoes();
+      this.shoes.sort((a,b) => (a.price < b.price)? 1 : ((b.price < a.price) ? -1 : 0));
+      this.filteredShoes.emit(this.shoes);
+    }
+
     else if(this.selectedFilter === 'Masculino') {
       this.getShoes();
       this.shoes = this.shoes.filter(filter => filter.gender === 'Masculino' || filter.gender === 'Unissex');
