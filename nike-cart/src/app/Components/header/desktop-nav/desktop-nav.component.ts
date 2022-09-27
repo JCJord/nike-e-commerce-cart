@@ -1,5 +1,11 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+interface AppState {
+  message: boolean;
+}
 @Component({
   selector: 'app-desktop-nav',
   templateUrl: './desktop-nav.component.html',
@@ -18,37 +24,44 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   ],
 })
 export class DesktopNavComponent implements OnInit {
-  
+  focus$!: Observable<boolean>;
+
   @Output()
   isSearching = new EventEmitter<boolean>();
   
-  focusSearchOn = false;
+  focusSearchOn!:boolean;
   linksReadyToAppear = true;
   closeButtonReadyToAppear = false;
 
-  constructor() { }
+  constructor(private store: Store<AppState>) {
+    this.focus$ = this.store.select('message');
+
+    this.focus$.subscribe((menuState: boolean)=>{
+      this.focusSearchOn = menuState;
+
+      if(menuState == false) {
+        this.closeButtonReadyToAppear = false;
+        setTimeout(() => {
+          this.linksReadyToAppear = true;
+        },199);
+      }
+    });
+
+  }
 
   ngOnInit(): void {
   }
 
   focusInput() {    
-    this.focusSearchOn = true;
+    this.store.dispatch({type: "open"})
     this.linksReadyToAppear = false;
     setTimeout(()=>{
       this.closeButtonReadyToAppear = true;
     },300);
-    setTimeout(() => {
-      this.isSearching.emit(true);;
-    },196);
-    
   }
 
   closeSearchInput() {
-    this.focusSearchOn = false;
+    this.store.dispatch({type: 'closed'});
     this.closeButtonReadyToAppear = false;
-    this.isSearching.emit(false);
-    setTimeout(() => {
-      this.linksReadyToAppear = true;
-    },199);
   }
 }
