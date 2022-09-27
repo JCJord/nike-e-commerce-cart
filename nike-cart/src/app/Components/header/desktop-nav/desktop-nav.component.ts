@@ -25,9 +25,6 @@ interface AppState {
 })
 export class DesktopNavComponent implements OnInit {
   focus$!: Observable<boolean>;
-
-  @Output()
-  isSearching = new EventEmitter<boolean>();
   
   focusSearchOn!:boolean;
   linksReadyToAppear = true;

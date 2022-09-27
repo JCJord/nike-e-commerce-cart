@@ -1,5 +1,5 @@
 <div class="" style="border: 1px solid #fff;">
-  <app-header (isSearching)="onSearchFocus($event)"></app-header>
+  <app-header></app-header>
   <div  class="position-relative">
     <div [ngClass]="{'opacity-1': isSearching}" (click)="unfocusSearch()"  class="overlay"></div>
     <app-carousel></app-carousel>

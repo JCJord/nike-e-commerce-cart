@@ -23,10 +23,6 @@ export class AppComponent {
     })
   }
 
-  onSearchFocus(isSearching: boolean) {
-    this.isSearching = isSearching;
-  }
-
   unfocusSearch() {
     this.store.dispatch({type: 'closed'});
   }
