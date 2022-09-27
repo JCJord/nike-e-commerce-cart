@@ -12,7 +12,6 @@ export class CartServiceService {
 
   addShoes(shoe: Shoes) {
     this.shoesInCart.push(shoe)
-    console.log(this.shoesInCart)
   }
 
   getItems() {

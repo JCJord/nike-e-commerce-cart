@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'nike-cart';
+
+  isSearching = false;
+
+  onSearchFocus(isSearching: boolean) {
+    this.isSearching = isSearching;
+  }
 }

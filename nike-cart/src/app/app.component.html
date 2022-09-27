@@ -1,5 +1,8 @@
 <div class="" style="border: 1px solid #fff;">
-  <app-header></app-header>
-  <app-carousel></app-carousel>
-  <router-outlet></router-outlet>
+  <app-header (isSearching)="onSearchFocus($event)"></app-header>
+  <div  class="position-relative">
+    <div [ngClass]="{'opacity-1': isSearching}"  class="overlay"></div>
+    <app-carousel></app-carousel>
+    <router-outlet></router-outlet>
+  </div>
 </div>

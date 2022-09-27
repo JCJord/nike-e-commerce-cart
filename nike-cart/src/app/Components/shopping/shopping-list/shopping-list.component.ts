@@ -18,6 +18,7 @@ export class ShoppingListComponent {
 
   loaded = 0;
   isLoading = true;
+  shoesFiltered = false;
 
   constructor () {}
 
@@ -25,7 +26,12 @@ export class ShoppingListComponent {
     console.log(this.shoes)
   }
   filteredShoes(newShoes: Shoes[]) {
+    this.shoesFiltered = true;
     this.shoes = newShoes;
+
+    setTimeout(() => {
+      this.shoesFiltered = false;
+    },200);
   }
 
   selectedGrid(gridColSize: number) {

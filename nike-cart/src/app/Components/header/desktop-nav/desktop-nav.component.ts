@@ -1,5 +1,5 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-desktop-nav',
   templateUrl: './desktop-nav.component.html',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   animations: [
     trigger('openClose', [
       state('open', style({
-        height: '400px',
+        height: '250px',
       })),
       state('closed', style({
         height: '*',
@@ -15,29 +15,17 @@ import { Component, OnInit } from '@angular/core';
       transition('closed => open', animate('200ms ease-in-out')),
       transition('open => closed', animate('200ms ease-in-out')),
     ]),
-    trigger('showHidden', [
-      state('open', style({
-        height: '0',
-        width: '0',
-        fontSize:'0',
-      })),
-      state('closed', style({
-        width: '40px',
-        height: '40px',
-        fontSize:'32px',
-
-      })),
-      transition('closed => open', animate('0ms ease-in-out')),
-      transition('open => closed', animate('200ms ease-in-out')),
-    ]),
   ],
 })
 export class DesktopNavComponent implements OnInit {
   
+  @Output()
+  isSearching = new EventEmitter<boolean>();
+  
   focusSearchOn = false;
-  headerReadyForTransition = false;
   linksReadyToAppear = true;
   closeButtonReadyToAppear = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -46,26 +34,21 @@ export class DesktopNavComponent implements OnInit {
   focusInput() {    
     this.focusSearchOn = true;
     this.linksReadyToAppear = false;
-    this.closeButtonReadyToAppear = true;
     setTimeout(()=>{
-      this.headerReadyForTransition = !this.headerReadyForTransition;
-    },400)
-
+      this.closeButtonReadyToAppear = true;
+    },300);
+    setTimeout(() => {
+      this.isSearching.emit(true);;
+    },196);
     
   }
 
   closeSearchInput() {
     this.focusSearchOn = false;
-    
-
+    this.closeButtonReadyToAppear = false;
+    this.isSearching.emit(false);
     setTimeout(() => {
       this.linksReadyToAppear = true;
-    },196)
-
+    },199);
   }
-
-  waitAnimation() {
-
-  }
-
 }
