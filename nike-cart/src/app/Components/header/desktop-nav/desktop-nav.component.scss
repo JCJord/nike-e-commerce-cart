@@ -7,6 +7,8 @@
 .desk-nav .container {
   @include flexSpace(space-around);
   padding: 5px;
+  background: #fff;
+  transition: all .2s ease;
   
 }
 .desk-nav {
@@ -15,14 +17,49 @@
   z-index: 99999;
 }
 
+.active-menu {
+  top: 53px;
+  right:0;
+  width:230px;
+  transition: all .2s ease-in-out;
+  background: rgb(255, 255, 255);
+  z-index: 8;
+
+  .items-menu {
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: fit-content;
+    height: auto;
+    border:1px solid rgb(149, 149, 149) ;
+  }
+}
+
 .desk-links ul li {
   list-style: none;
 }
 
-.logo img {
-  width: 59px;
-  margin-left: 9px;
+.more-links {
+  z-index: 9;
+  transition: all .2s ease;
+  right: 0;
+  width: 28%;
 }
+
+.logo {
+  cursor: pointer;
+  z-index: 999;
+  min-width: 60px;
+  min-height: 60px;
+  transition: all .2s ease;
+  img {
+    width: 59px;
+    margin-left: 9px;
+  }
+
+}
+
 
 .search-input {
   width: 170px;
@@ -175,7 +212,7 @@
 }
 .close-btn {
   right: -250px;
-  bottom: -20px;
+  bottom: -22px;
   user-select: none;
   width: 0px;
   height: 0px;
@@ -188,6 +225,30 @@
 
   &:hover {
     background: #bebdbd;
+  }
+}
+
+.slide-animation {
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
+}
+
+.list-title {
+  opacity: 0;
+  transition: .3s;
+  transform: translateY(-20px);
+}
+
+.list-item {
+  font-size: 20px;
+  line-height: 36px;
+  cursor: pointer;
+  transition: .2s ease;
+  opacity: 0;
+  transition: .3s;
+  transform: translateY(-20px);
+  &:hover {
+    color: rgb(91, 91, 91);
   }
 }
 

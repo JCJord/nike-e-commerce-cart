@@ -6,53 +6,19 @@
 
     <div id="mainCarousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="d-flex slider-content">
+        <div *ngFor="let shoe of featuredShoes; let i = index;" class="carousel-item active" [ngClass]="{'active': i === 0}">
+          <div class="d-flex slider-content" [routerLink]="['item/' + shoe.id]">
             <img
               class="d-block w-100"
-              src=""
+              [src]="shoe.imgUrl"
               alt="First slide"
             />
             <div class="content-text">
               <div class="content-text-box">
-                <h4>Tênis airJordan 1 Low SE</h4>
-                <h4>Masculino</h4>
-                <h3 class="text-muted">Basquete/Casual</h3>
-                <h3 class="text-muted">R$ 179,00</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="d-flex slider-content">
-            <img
-              class="d-block w-100"
-              src=""
-              alt="First slide"
-            />
-            <div class="content-text">
-              <div class="content-text-box">
-                <h4>Tênis air max 97</h4>
-                <h4>Masculino</h4>
-                <h3 class="text-muted">Basquete/Casual</h3>
-                <h3 class="text-muted">R$ 179,00</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="d-flex slider-content">
-            <img
-              class="d-block w-100"
-              src=""
-              alt="First slide"
-            />
-            <div class="content-text">
-              <div class="content-text-box">
-                <h4>Tênis Nike SB</h4>
-                <h4>Masculino</h4>
-                <h3 class="text-muted">Basquete/Casual</h3>
-                <h3 class="text-muted">R$ 179,00</h3>
+                <h4>{{shoe.name}}</h4>
+                <h4>{{shoe.gender}}</h4>
+                <h3 class="text-muted">{{shoe.type}}</h3>
+                <h3 class="text-muted">R$ {{shoe.price}}</h3>
               </div>
             </div>
           </div>

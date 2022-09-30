@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core'
+import { ShoppingListService } from 'src/app/Services/shopping-list-service';
 import { Shoes } from '../shoes.model'
 
 @Component({
@@ -20,23 +21,16 @@ export class ShoppingListComponent {
   isLoading = true;
   shoesFiltered = false;
 
-  constructor () {}
+  constructor (private shoppingListService:ShoppingListService) {}
 
   ngOnInit() {
-    console.log(this.shoes)
-  }
-  filteredShoes(newShoes: Shoes[]) {
-    this.shoesFiltered = true;
-    this.shoes = newShoes;
-
-    setTimeout(() => {
-      this.shoesFiltered = false;
-    },200);
+    this.shoppingListService.isLoading.subscribe((isLoading: boolean) => {
+      this.shoesFiltered = isLoading;
+    })
   }
 
   selectedGrid(gridColSize: number) {
     this.gridSize = gridColSize;
-    console.log(gridColSize);
   }
 
   gridStyles(gridColSize: number) {

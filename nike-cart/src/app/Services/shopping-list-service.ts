@@ -1,7 +1,8 @@
+import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
 import { Shoes } from '../Components/shopping/shoes.model'
 
 export class ShoppingListService {
-  shoes: Shoes[] = [
+  private shoes: Shoes[] = [
     new Shoes(
       0,
       'Chuteiras Nike Mercurial Superfly 8 Elite KM',
@@ -123,17 +124,99 @@ export class ShoppingListService {
       ['../../assets/images/shoes/airmax-97.webp','https://imgnike-a.akamaihd.net/1300x1300/013645IDA1.jpg','https://imgnike-a.akamaihd.net/1300x1300/013645IDA10.jpg','https://imgnike-a.akamaihd.net/1300x1300/013645IDA11.jpg','https://imgnike-a.akamaihd.net/1300x1300/013645IDA2.jpg','https://imgnike-a.akamaihd.net/1300x1300/013645IDA3.jpg','https://imgnike-a.akamaihd.net/1300x1300/013645IDA4.jpg','https://imgnike-a.akamaihd.net/1300x1300/013645IDA5.jpg','https://imgnike-a.akamaihd.net/1300x1300/013645IDA6.jpg','https://imgnike-a.akamaihd.net/1300x1300/013645IDA7.jpg','https://imgnike-a.akamaihd.net/1300x1300/013645IDA8.jpg','https://imgnike-a.akamaihd.net/1300x1300/013645IDA9.jpg'],
       [39, 40, 41, 42]
     )
-  ]
+  ];
 
-  getShoes () {
-    return this.shoes
+  public isLoading: Subject<any> = new BehaviorSubject(false);
+  
+  private allShoes:Shoes[] = [...this.shoes];
+  shoesObservable: Subject<Shoes[]> = new BehaviorSubject(this.shoes);
+
+  constructor() {
+  }
+
+  getAllShoes () {
+    this.shoesObservable.next(this.allShoes);
+  }
+
+  filterShoes(selectedFilter: string) {
+    switch(selectedFilter) {
+      case 'Menor Preço':
+        this.isLoading.next(true);
+
+        this.shoes = this.shoes.sort((a,b) => (a.price > b.price)? 1 : ((b.price > a.price) ? -1 : 0));
+        this.shoesObservable.next(this.shoes);
+
+        setTimeout(() => {
+          this.isLoading.next(false);
+        },400);
+        break;
+
+      case 'Maior Preço':
+        this.isLoading.next(true);
+
+        this.shoes = this.shoes.sort((a,b) => (a.price < b.price)? 1 : ((b.price < a.price) ? -1 : 0));
+        this.shoesObservable.next(this.shoes);
+
+
+        setTimeout(() => {
+          this.isLoading.next(false);
+        },400);
+        break;
+
+      case 'Masculino':
+        this.isLoading.next(true);
+
+
+        this.shoes = this.shoes.filter(filter => filter.gender === 'Masculino' || filter.gender === 'Unissex');
+        this.shoesObservable.next(this.shoes);
+
+        setTimeout(() => {
+          this.isLoading.next(false);
+        },400);
+        break;
+
+      case 'Lançamento':
+        this.isLoading.next(true);
+        this.shoes = this.shoes.filter(filter => filter.release != false);
+        this.shoesObservable.next(this.shoes);
+
+        setTimeout(() => {
+          this.isLoading.next(false);
+        },400);
+        break;
+        
+        default:
+        this.isLoading.next(true);
+        this.shoes = this.allShoes;
+        this.shoes = this.shoes.filter(filter => filter.name.toLowerCase().includes(selectedFilter.toLowerCase()));
+        this.shoesObservable.next(this.shoes);
+
+        setTimeout(() => {
+          this.isLoading.next(false);
+        },400)
+    }
+
+  }
+
+  getShoes (): Observable<Shoes[]> {
+    return this.shoesObservable;
   }
 
   getAmountOfShoes () {
-    return this.shoes.length
+    return this.allShoes.length;
+  }
+
+  getFeaturedItems() {
+    let featuredItems:Shoes[] = [];
+    
+    for(let i = 4; i < 7; i++) {
+      featuredItems.push(this.allShoes[i]);
+    }
+
+    return featuredItems;
   }
 
   getItem (index: number) {
-    return this.shoes.find(shoe => shoe.id == index);
+    return this.allShoes.find(shoe => shoe.id == index);
   }
 }

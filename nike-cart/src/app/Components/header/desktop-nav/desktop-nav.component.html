@@ -1,8 +1,8 @@
 <div class="desk-nav">
-  <div class="container d-flex justify-content-between" style="background: #fff; transition: all .2s ease;">
+  <div class="container d-flex justify-content-between">
       <div class="custom-w d-flex align-items-center justify-content-between" style="transition: all .2s ease;" [ngClass]="{'width-on-focus': focusSearchOn}">
       
-        <div style="z-index: 999; min-width: 60px; min-height: 60px; transition: all .2s ease" class="logo"><img src="../../../assets/images/nike.png" alt="" /></div>
+        <div routerLink="/" class="logo"><img src="../../../assets/images/nike.png" alt="" /></div>
         <div [ngClass]="{'d-none': !linksReadyToAppear}" class="desk-links dropdown">
           <a href="" class="desk-link">DÊ ESPORTIVOS</a>
           <a href="" class="desk-link">LANÇAMENTOS</a>
@@ -21,33 +21,50 @@
       </div>
 
 
-      <div class="more-links mx-auto d-flex position-relative" style="z-index: 9; transition: all .2s ease; right: 0; width: 28%;" [ngClass]="{'move-input-left': focusSearchOn}">
+      <div class="more-links mx-auto d-flex position-relative"  [ngClass]="{'move-input-left': focusSearchOn}">
         <div class="position-absolute" style="top: -20px; right:0;">
-          <div class="fit-content d-flex">
-            <div class="input-group-prepend search-button-style">
-              <button class="btn btn-outline-secondary search-btn search-button-style" type="button">
-                <img style="min-width: 16px; min-height:16px" src="../../../assets/images/search.svg" alt="" />
-              </button>
-            </div>
-            <input
-              (click)="focusInput()"
-              type="text"
-              class="form-control search-input"
-              placeholder="O que você procura?"
-              aria-label=""
-              aria-describedby="basic-addon1"
-              style="transition: ALL .2s ease-in-out;"
-              [ngClass]="{'search-on-width': focusSearchOn}"
+          <div class="position-relative">
+            <div class="fit-content d-flex position-relative">
+              <div class="input-group-prepend search-button-style">
+                <button class="btn btn-outline-secondary search-btn search-button-style" type="button" (click)="shoeName ? onSubmit() : false">
+                  <img style="min-width: 16px; min-height:16px" src="../../../assets/images/search.svg" alt="" />
+                </button>
+              </div>
+              <form (submit)="onSubmit()">
+                <input
+                (click)="focusInput()"
+                type="text"
+                class="form-control search-input py-2"
+                placeholder="O que você procura?"
+                aria-label=""
+                aria-describedby="basic-addon1"
+                style="transition: ALL .2s ease-in-out;"
+                [ngClass]="{'search-on-width': focusSearchOn}"
+                [(ngModel)]="shoeName"
+                [ngModelOptions]="{standalone: true}"
+                />
+              </form>
 
-            />
+            </div>
+            <div *ngIf="focusSearchOn" class="position-absolute items-menu mt-4">
+              <div class="text-muted mb-3 list-title" [ngClass]="{'slide-animation': closeButtonReadyToAppear}">
+                  Popular Search Terms
+              </div>
+              <div *ngFor="let i of listItem;" class="list-item" [ngClass]="{'slide-animation': closeButtonReadyToAppear}" (click)="searchItemByName(i.shoeSearch)" >
+                {{ i.shoeSearch }}
+              </div>
+              
+            </div>
           </div>
 
         </div>
         <div class="position-absolute d-flex justify-content-center align-items-center close-btn" (click)="closeSearchInput()" [ngClass]="{'show-btn': closeButtonReadyToAppear , 'hide-btn': !closeButtonReadyToAppear}">
           +
         </div>
+        
       </div>
-      <div class="input-box position-absolute" [@openClose]="focusSearchOn ? 'open' : 'closed'"  style="top: 53px; right:0;width:230px; transition: all .2s ease-in-out; background: rgb(255, 255, 255); z-index: 8;" [ngClass]="{'search-over-animation': focusSearchOn}">
+      <div class="input-box position-absolute active-menu" [@openClose]="focusSearchOn ? 'open' : 'closed'" [ngClass]="{'search-over-animation': focusSearchOn}">
+        
       </div>
   </div>
 </div>

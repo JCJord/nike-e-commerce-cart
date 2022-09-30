@@ -51,6 +51,9 @@
   height: 10px;
   margin-left: auto !important;
 }
+.carousel-item {
+  cursor: pointer;
+}
 .carousel-indicators {
   margin-bottom: 75px;
   width: 82%;
@@ -102,6 +105,18 @@
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
   margin-left: 5px;
+}
+.slider-content {
+  cursor: pointer;
+  img {
+    cursor: pointer;
+  }
+  .content-text {
+    cursor: pointer;
+    &:hover {
+      color: rgb(119, 119, 119);
+    }
+  }
 }
 @media only screen and (max-width: 800px) {
   .publishment {

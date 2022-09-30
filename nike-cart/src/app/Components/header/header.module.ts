@@ -5,6 +5,7 @@ import { MobileNavComponent } from './mobile-nav/mobile-nav.component';
 import { DesktopNavComponent } from './desktop-nav/desktop-nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   exports:[HeaderComponent,MobileNavComponent,DesktopNavComponent]
 })

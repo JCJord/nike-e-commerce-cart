@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ShoppingListService } from 'src/app/Services/shopping-list-service';
+import { Shoes } from '../shopping/shoes.model';
 
 @Component({
   selector: 'app-main-carousel',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-carousel.component.scss']
 })
 export class MainCarouselComponent implements OnInit {
-
-  constructor() { }
+  featuredShoes!: Shoes[];
+  constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit(): void {
+    this.featuredShoes = this.shoppingListService.getFeaturedItems();
   }
 
 }
