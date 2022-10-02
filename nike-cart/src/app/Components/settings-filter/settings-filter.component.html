@@ -1,0 +1,24 @@
+<div class="w-100 filter-box">
+    <div class="accordion d-flex justify-content-between align-items-center" (click)="open = !open">
+        <div class="filter-name">
+            Cores
+        </div>
+
+        <div class="arrow-box me-1 position-relative">
+            <i class="arrow up" [ngClass]="{'down': open}"></i>
+        </div>
+    </div>
+
+</div>
+<div class="color-filter row m-0 w-100 gy-3" [hidden]="!open">
+    <div class="col-md-3 p-0 color-btn" *ngFor="let color of colors; let i = index;" (click)="filterByColor(color.name); selectColor(i)">
+        <div class="circle d-flex justify-content-center align-items-center mx-auto"  [ngStyle]="{'background': color.code}" [ngClass]="{'border': color.code === '#fff'}">
+            <div *ngIf="color.isSelected" [ngClass]="{'text-light': color.code === '#000'}">
+                x
+            </div>
+        </div>
+        <div class="color-name text-center">
+            {{color.name}}
+        </div>
+    </div>
+</div>

@@ -18,7 +18,7 @@ import { menuReducer } from './States/menu-reducer';
     AppComponent,
     HomeComponent,
     CartComponent,
-    ItemComponent
+    ItemComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HeaderModule, CarouselModule, ShoppingModule, StoreModule.forRoot({message: menuReducer})],
   providers: [ShoppingListService],
