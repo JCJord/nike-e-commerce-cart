@@ -10,15 +10,15 @@ import { ShoppingListService } from 'src/app/Services/shopping-list-service';
 export class FilterComponent {
   selectedFilter = 'Menor Preço'
   activeGrid!: number;
-
+  filterIsActive = true;
   @Input()
   shoes!: Shoes[];
 
   @Output()
-  filteredShoes = new EventEmitter<Shoes[]>();
+  selectedGrid = new EventEmitter<number>();
 
   @Output()
-  selectedGrid = new EventEmitter<number>();
+  showFilters = new EventEmitter<boolean>();
 
   constructor(private shoppingListService:ShoppingListService) { }
 
@@ -30,5 +30,10 @@ export class FilterComponent {
   selectGridSize(gridColSize: number) {
     this.selectedGrid.emit(gridColSize);
     this.activeGrid = gridColSize;
+  }
+
+  toggleFilters() {
+    this.filterIsActive = !this.filterIsActive;
+    this.showFilters.emit(this.filterIsActive);
   }
 }

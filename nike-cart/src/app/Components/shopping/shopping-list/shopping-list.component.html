@@ -2,19 +2,11 @@
 <div class="shopping-container">
   
   <div [hidden]="shoes.length < 1">
-    <app-filter [shoes]="shoes" (selectedGrid)="selectedGrid($event)"></app-filter>
+    <app-filter [shoes]="shoes" (selectedGrid)="selectedGrid($event)" (showFilters)="filtersOnToggle($event)"></app-filter>
     
     <div class="px-3 d-flex">
-      <div class="sidenav me-3">
-        <h3>Calçados ({{ shoesAmount }})</h3>
-        <h4>TIPOS DE CALÇADOS</h4>
-        <ul>
-          <li>Casual (21)</li>
-          <li>Corrida (14)</li>
-          <li>Feminino (10)</li>
-          <li>Masculino (42)</li>
-          <li>SkateBoarding (20)</li>
-        </ul>
+      <div class="sidenav me-3" [ngClass]="{'disabled-filter': !filterIsActive}">
+        <app-settings-filter #filterSettings [hidden]="!filterIsActive"></app-settings-filter>
       </div>
       <div class="shopping-container position-relative w-100 shopping-list" [ngClass]="gridStyles(gridSize)">
         <div [hidden]="!shoesFiltered" class="position-absolute w-100 h-100" style="background: rgba(255, 255, 255, 0.737); z-index: 9999;" ></div>
@@ -43,6 +35,10 @@
     <h1>
       Não encontramos nenhum resultado .
     </h1>
+
+    <button class="btn btn-checkout mt-2" (click)="getAllShoes()">
+      Veja Todos os Calçados.
+    </button>
   </div>
 
 </div>

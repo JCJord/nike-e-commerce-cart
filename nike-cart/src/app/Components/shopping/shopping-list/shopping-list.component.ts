@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, Input, OnInit, ViewChild } from '@angular/core'
 import { ShoppingListService } from 'src/app/Services/shopping-list-service';
+import { SettingsFilterComponent } from '../../settings-filter/settings-filter.component';
 import { Shoes } from '../shoes.model'
 
 @Component({
@@ -8,6 +9,9 @@ import { Shoes } from '../shoes.model'
   styleUrls: ['./shopping-list.component.scss']
 })
 export class ShoppingListComponent {
+  @ViewChild('filterSettings') filter!: SettingsFilterComponent;
+ 
+
   @Input()
   shoes!: Shoes[];
 
@@ -20,6 +24,7 @@ export class ShoppingListComponent {
   loaded = 0;
   isLoading = true;
   shoesFiltered = false;
+  filterIsActive = true;
 
   constructor (private shoppingListService:ShoppingListService) {}
 
@@ -51,4 +56,12 @@ export class ShoppingListComponent {
     }
   }
 
+  filtersOnToggle(isActive: boolean) {
+    this.filterIsActive = isActive;
+  }
+
+  getAllShoes() {
+    this.shoppingListService.getAllShoes();
+    this.filter.resetSelection();
+  }
 }
