@@ -5,13 +5,17 @@ import { ShoppingItemComponent } from './shopping-item/shopping-item.component';
 import { RouterModule } from '@angular/router';
 import { FilterComponent } from './filter/filter.component';
 import { SettingsFilterComponent } from '../settings-filter/settings-filter.component';
+import { SwiperModule } from 'swiper/angular';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [ShoppingListComponent, ShoppingItemComponent, FilterComponent, SettingsFilterComponent],
   imports: [
     CommonModule,
-    RouterModule
+    ReactiveFormsModule,
+    RouterModule,
+    SwiperModule
   ],
   exports:[ShoppingListComponent,ShoppingItemComponent, FilterComponent, SettingsFilterComponent]
 })

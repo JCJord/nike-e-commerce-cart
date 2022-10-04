@@ -8,7 +8,7 @@ import { ShoppingListService } from 'src/app/Services/shopping-list-service';
 })
 export class SettingsFilterComponent implements OnInit {
 
-  open = false;
+  open = true;
   
   colors = [
     {

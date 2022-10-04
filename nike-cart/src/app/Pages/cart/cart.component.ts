@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Shoes } from 'src/app/Components/shopping/shoes.model';
+import { selectedShoes } from 'src/app/Components/shopping/shopping-item/selected-item.model';
 import { CartServiceService } from '../../Services/cart-service.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { CartServiceService } from '../../Services/cart-service.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  items:Shoes[] = [];
+  items: selectedShoes[] = [];
   totalPrice = 0;
   constructor(private cartService:CartServiceService) { }
 

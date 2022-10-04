@@ -238,6 +238,6 @@ export class ShoppingListService {
   }
 
   getItem (index: number) {
-    return this.allShoes.find(shoe => shoe.id == index);
+    return this.allShoes.find(shoe => shoe.id == index) as Shoes;
   }
 }

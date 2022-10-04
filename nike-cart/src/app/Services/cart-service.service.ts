@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Shoes } from 'src/app/Components/shopping/shoes.model';
+import { selectedShoes } from '../Components/shopping/shopping-item/selected-item.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartServiceService {
-  shoesInCart: Shoes[] = [];
+  shoesInCart: selectedShoes[] = [];
 
   constructor() { }
 
-  addShoes(shoe: Shoes) {
-    this.shoesInCart.push(shoe)
+  addShoes(shoe: selectedShoes) {
+    this.shoesInCart.push(shoe);
   }
 
   getItems() {
