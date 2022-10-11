@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingListService } from 'src/app/Services/shopping-list-service';
+import { Shoes } from '../shopping/shoes.model';
+
+export interface colors {
+  name:string,
+  code:string,
+  isSelected:boolean,
+}
 
 @Component({
   selector: 'app-settings-filter',
@@ -10,7 +17,7 @@ export class SettingsFilterComponent implements OnInit {
 
   open = true;
   
-  colors = [
+  colors: Array<colors> = [
     {
       name: 'Amarelo',
       code: '#fcec03',
@@ -78,44 +85,85 @@ export class SettingsFilterComponent implements OnInit {
     }
   ];
 
+  colorCopy = [...this.colors];
+  currentState: any;
   constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit(): void {
-    this.colors.forEach((colorSetting)=>{
-      colorSetting.isSelected = false;
-    })
+    this.resetSelection();
   }
 
-  filterByColor(color: string) {
-    this.shoppingListService.filterItemByColor(color);
+  filterByColor(color: string, code: string) {
+    const isColorAlreadySelected = this.colors.find(color => color.code === code);
+
+    if(isColorAlreadySelected?.isSelected){
+      console.log('color already selected');
+      let counter = 0;
+      let selectedColors = []
+      for(let color of this.colors){
+        if(color.isSelected){
+          selectedColors.push({name: color.name})
+          counter++;
+        }
+      }
+      if(counter > 1){
+        const notSelectedColor = this.colors.find(allColors => allColors.name.toLowerCase() != color.toLocaleLowerCase());
+        const selectedColor = this.colors.find(allColors => allColors.name.toLowerCase() === color.toLowerCase());
+        console.log(notSelectedColor)
+        this.shoppingListService.unselectFilteredColor(notSelectedColor!.name);
+        this.colors = this.colorCopy;
+        this.colors = this.getAvailableColors(notSelectedColor!.name)
+        this.colors.push({name: notSelectedColor!.name, code: notSelectedColor!.code, isSelected : false});
+        const newIndex = this.colors.findIndex(colors => colors.code === notSelectedColor!.code);
+        this.selectColor(newIndex);
+
+      }else {
+        this.shoppingListService.getAllShoes();
+        this.colors = this.colorCopy;
+      }
+
+    } else {
+      this.shoppingListService.filterItemByColor(color);
     
+      
+      this.colors = this.getAvailableColors(color);
+      this.colors.push({name: color, code: code, isSelected: false});
+      const newIndex = this.colors.findIndex((color)=> color.code === code);
+  
+      this.selectColor(newIndex);
+    }
+  }
+
+  getAvailableColors(color: string):Array<colors> {
+    let allShoes: Array<Shoes> = [];
+
+    this.shoppingListService.getShoes().subscribe((shoes)=>{
+      allShoes = shoes;
+    });
+
+    let avaialableColors:any  = [];
+
+    allShoes.forEach((item:any)=>{
+      avaialableColors.push({name: item.color.toLowerCase().replace(color.toLowerCase(),'').replace('/','').trim()});
+    });
+
+    avaialableColors = avaialableColors.filter((x: colors) => x.name.length != 0).flat();
+    
+    let currentColors = avaialableColors.map((availableColor: colors) => this.colors.filter((colorItem: colors) => colorItem.name.toLowerCase() === availableColor.name )).flat();
+    const noDuplicates: Array<colors> = Array.from(new Set(currentColors));
+    
+    return noDuplicates;
   }
   
   selectColor(index: number) {
-    this.colors[index].isSelected = !this.colors[index].isSelected;
-
-    let counter = 0;
-    if(!this.colors[index].isSelected){
-      this.colors.forEach((color) => {
-        
-        if(color.isSelected) {
-          this.shoppingListService.unselectFilteredColor(color.name);
-        }else {
-          counter ++;
-        }
-        
-        if(counter == this.colors.length){
-          this.shoppingListService.getAllShoes();
-        }
-      })
-    }
+    this.colors[index].isSelected = true;
+    
   
   }
 
   resetSelection() {
-    this.colors.forEach((colorSettings)=>{
-      colorSettings.isSelected = false;
-    })
+    this.colors = this.colorCopy;
+    this.shoppingListService.getAllShoes();
   }
 
 }
