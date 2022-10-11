@@ -1,12 +1,13 @@
 <div class="item-container pb-3">
   <div class="d-flex item-box mt-5">
-    <div class="w-100 selected-item">
-      <ng-container *ngFor="let imgs of item.itemImgs">
+    <div class="w-100 selected-item" style="  align-items:flex-start;
+    align-content:flex-start;">
+      <div  *ngFor="let imgs of item.itemImgs">
         <div  class="w-100 item">
           <div *ngIf="isLoading" class="loader-img w-100"></div>
           <img [hidden]="isLoading" [src]="imgs" (load)="onLoad()" alt="">
         </div>
-      </ng-container>
+      </div>
     </div>
     <div class="ps-3 pe-3 item-info">
       <div class="item-category mb-3">
@@ -127,8 +128,8 @@
       </li>
      </ul>
 
-     <div>
-
+     <div class="cep-search-box">
+      <input type="text">
      </div>
 
     </div>
