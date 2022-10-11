@@ -44,6 +44,27 @@
         font-size: 11px;
     }
 }
-.border {
+
+
+.check-icon {
+    left: 2px;
+    transform: rotate(-5deg);
+    .slash-1 {
+        width: 12px;
+        height:3px;
+        background: black;
+        transform: rotate(-35deg);
+        left: 0px;
+        top: 3px;
+    }
+
+    .slash-2 {
+        width: 7px;
+        height:3px;
+        background: rgb(0, 0, 0);
+        transform: rotate(45deg);
+        right: 3px;
+        bottom: 3px;
+    }
 
 }

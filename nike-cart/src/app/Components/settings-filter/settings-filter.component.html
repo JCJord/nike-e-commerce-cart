@@ -13,8 +13,13 @@
 <div class="color-filter row m-0 w-100 gy-3" [hidden]="!open">
     <div class="col-md-3 p-0 color-btn" *ngFor="let color of colors; let i = index;" (click)=" filterByColor(color.name, color.code);">
         <div class="circle d-flex justify-content-center align-items-center mx-auto"  [ngStyle]="{'background': color.code}" [ngClass]="{'border': color.code === '#fff'}">
-            <div *ngIf="color.isSelected" [ngClass]="{'text-light': color.code === '#000'}">
-                x
+            <div class="position-relative check-icon" *ngIf="color.isSelected" [ngClass]="{'text-light': color.code === '#000'}">
+                <div class="slash-1 position-relative" [ngClass]="{'bg-light': color.code === '#000'}">
+
+                </div>
+                <div class="slash-2 mt-1 position-relative" [ngClass]="{'bg-light': color.code === '#000'}">
+
+                </div>
             </div>
         </div>
         <div class="color-name text-center">
