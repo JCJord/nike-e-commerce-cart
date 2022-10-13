@@ -7,9 +7,12 @@ import { ShoppingListService } from '../../../Services/shopping-list-service'
 import SwiperCore, { Navigation, SwiperOptions, Autoplay, Scrollbar } from 'swiper';
 import { trigger, state, style, transition, animate } from '@angular/animations'
 import { selectedShoes } from './selected-item.model';
+import { Store } from '@ngrx/store';
 
 SwiperCore.use([Navigation, Autoplay, Scrollbar]);
-
+interface AppState {
+  cart: boolean;
+}
 @Component({
   selector: 'app-shopping-item',
   templateUrl: './shopping-item.component.html',
@@ -56,7 +59,8 @@ export class ShoppingItemComponent implements OnInit {
     private shoppingListService: ShoppingListService,
     private route: ActivatedRoute,
     private cartService:CartServiceService,
-    private router: Router
+    private router: Router,
+    private store: Store<AppState>
   ) {
     setTimeout(()=> {
       window.scrollTo(0,0);
@@ -67,18 +71,18 @@ export class ShoppingItemComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       let id  =+ params['id'];
       this.item = this.shoppingListService.getItem(id);
-    })
+    });
   }
 
   addToCart() {
     if(this.cartForm.get('size')?.valid) {
-
-      let cartItem: any = this.item;
+      let cartItem: any = {...this.item};
       cartItem['selectedSize'] = this.selectedSize;
-
-      this.cartService.addShoes(cartItem);
-      this.router.navigate(['/cart'])
+      cartItem['amount'] = 1;
+      cartItem['total_value'] = this.item.price;
+      this.cartService.addShoes(cartItem as selectedShoes);
       
+      this.store.dispatch({type: "show_cart_menu"});
     }else {
       this.isSizeInputValid = false;
     }
@@ -98,4 +102,5 @@ export class ShoppingItemComponent implements OnInit {
       this.isLoading = false;
     }
   }
+  
 }

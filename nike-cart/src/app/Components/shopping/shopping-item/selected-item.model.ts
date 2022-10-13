@@ -9,5 +9,7 @@ export interface selectedShoes {
     imgUrl: string
     itemImgs: Array<string>
     size: Array<number>
+    amount:number
     selectedSize: number
+    total_value:number
 }

@@ -1,8 +1,68 @@
 <div class="h-auto app" style="border: 1px solid #fff;">
+  <div [ngClass]="{'show-cart-menu': isShopping}" class="cart-menu position-fixed">
+    <div class="cart-menu-header d-flex align-items-center justify-content-center text-light text-nowrap">
+      <div class="x-button" (click)="unfocusCartMenu()">
+        &times;
+      </div>
+      Seu carrinho
+    </div>
+
+    <div class="px-4 item-container">
+      <div class="mt-4 d-flex text-nowrap" *ngFor="let item of cartItems">
+        <div class="img-box me-2">
+          <img class="w-100"[src]="item.imgUrl" alt="">
+        </div>
+        <div class="item-info pb-4">
+          <div>
+            {{ item.name }} 
+          </div>
+          <div>
+            {{ item.gender }}
+          </div>
+          <div>
+            R$ {{ item.total_value.toString().replace('.',',') }}
+          </div>
+          <div class="mt-2" style="font-size: 12px;">
+            <div>
+              Cor: {{ item.color }}
+            </div>
+            <div class="mt-1">
+              Tamanho: {{ item.selectedSize }}
+            </div>
+            <div class="mt-1">
+              Quantidade: {{ item.amount }}
+            </div>
+          </div>
+        </div>
+        <div class="delete-icon-box d-flex justify-content-center align-items-center" (click)="removeFromCart(item.id)">
+          <span class="material-symbols-outlined">
+            delete
+          </span>
+        </div>
+        
+      </div>
+    </div>
+    <div class="py-2 px-4 d-flex align-items-center position-absolute flex-column justify-content-center text-nowrap" style="min-width:100%; font-size: 24px; bottom: 5%;">
+      <div class="d-flex justify-content-center py-3 w-100 mb-3" style="border-top: 1px solid lightgrey; border-bottom: 1px solid lightgrey;">
+        <div class="text-muted">Subtotal: </div>
+        <div class="ms-1 fw-bold"> R$ {{ subTotal.toFixed(2).replace('.',',') }}</div>
+      </div>
+      <div class="btn btn-nike text-light w-100 mb-3" (click)="finishShopping()">
+        Finalizar Compra
+      </div>
+
+      <div class="btn btn-nike-secondary w-100" (click)="unfocusCartMenu()">
+        Continuar Comprando
+      </div>
+    </div>
+  </div>
+  <div [ngClass]="{'opacity-1': isShopping}" (click)="unfocusCartMenu()" class="overlay-2"></div>
   <div [ngClass]="{'opacity-1': isSearching}" (click)="unfocusSearch()" class="overlay"></div>
-  <app-header></app-header>
-  <div  class="position-relative">
+  <div *ngIf="router.url != '/cart'" class="header-component">
+    <app-header></app-header>
     <app-carousel></app-carousel>
+  </div>
+  <div  class="position-relative">
     <router-outlet></router-outlet>
   </div>
 </div>

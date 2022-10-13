@@ -1,14 +1,132 @@
-<div class="container h-100">
-    <div *ngFor="let i of items">
-        {{ i.name }}
-        {{ i.price }}
-        {{ i.selectedSize }}
+<div class="cart-header d-flex align-items-center ps-4">
+    <div class="logo" [routerLink]="'/'">
+        <img class="w-100 h-100" src="../../../assets/images/nike.png" alt="">
     </div>
-    
-    <div>
-        <div class="d-flex">
-            <h4>Total : </h4>
-            <h5>{{ totalPrice.toFixed(2) }}</h5>
+</div>
+<div class="container h-100" style=" margin-top:38px">
+    <div class="mt-3 d-flex mx-auto cart-box" style="font-size: 12px;">
+        <div class="p-3 text-center d-flex align-items-center justify-content-center position-relative" style="background: #f7f7f7; width: 33%; border-top-left-radius: 4px; border-bottom-left-radius: 4px;">
+            <div class="step me-1 d-flex align-items-center justify-content-center">
+                1
+            </div>
+
+            <div class="step-name">
+                Carrinho
+            </div>
+            <div class="arrow-right"></div>
+        </div>
+        <div class="p-3 text-center d-flex align-items-center justify-content-center" style="width: 33%; background: #d6d6d6;">
+            <div class="step me-1 d-flex align-items-center justify-content-center">
+                2
+            </div>
+
+            <div class="step-name">
+                Identificação
+            </div>
+        </div>
+        <div class="p-3 text-center d-flex align-items-center justify-content-center" style="width: 33%; background: #d6d6d6; border-top-right-radius: 4px; border-bottom-right-radius: 4px;">
+            <div class="step me-1 d-flex align-items-center justify-content-center">
+                3
+            </div>
+
+            <div class="step-name">
+                Pagamento
+            </div>
+        </div>
+    </div>
+    <div *ngIf="items.length > 0" class="cart-box mx-auto mt-5">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Confira seu carrinho</h2>
+
+            <div class="d-flex">
+                <div>
+                    <i class="arrow left"></i>
+                </div>
+                <div style="font-size: 14px; text-decoration: underline; cursor:pointer;" [routerLink]="'/'">
+                    Continuar comprando
+                </div>
+            </div>
+        </div>
+
+        <div class="row gx-5 mt-5" style="font-size: 14px">
+            <div class="col-lg-5">
+                Produtos
+            </div>
+            <div class="col-lg-2">
+                Quantidade
+            </div>
+
+            <div class="col-lg-2 text-center">
+                Valor Unitário
+            </div>
+
+            <div class="col-lg-2 text-center" style="text-align:right;">
+                Valor Total
+            </div>
+            
+            <div class="col-lg-1"></div>
+        </div>
+
+                
+        <div class="row mt-4" *ngFor="let i of items; let id = index;">
+            <div class="col-lg-5">
+                <div class="d-flex" style="font-size: 12px;">
+                    <div class="me-3" style="width: 62px;">
+                        <img class="w-100" [src]="i.imgUrl" alt="">
+                    </div>
+                    <div>
+                        <div>
+                            {{i.name}}
+                            {{i.gender}}
+                        </div>
+                        <div class="mt-1 mb-1">
+                            Cor: {{i.color}}
+                        </div>
+                        <div>
+                            Tamanho: {{i.selectedSize}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="number-counter d-flex align-items-center justify-content-center">
+                    <div class="minus" (click)="decreaseAmount(id)">
+                        -
+                    </div>
+                    <div class="value d-flex align-items-center justify-content-center">
+                        {{ i.amount }}
+                    </div>
+                    <div class="plus" (click)="increaseAmount(id)">
+                        +
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-2 text-center">
+                R$ {{ initialValues[id] ? initialValues[id].toString().replace('.',',') : i.price.toFixed(2).replace('.',',') }}
+            </div>
+
+            <div class="col-lg-2 text-center fw-bold" style="text-align:right;">
+                <!-- R$ {{ totalPrice.toFixed(2).replace('.',',') }} -->
+                R$ {{ i.total_value.toFixed(2).replace('.',',') }}
+            </div>
+            
+            <div class="col-lg-1"> X </div>
+        </div>
+
+    </div>
+
+    <div class="mx-auto fit-content position-relative" style="margin-top: 65px" *ngIf="items.length == 0">
+        <h3 class="text-uppercase text-center">
+            SEU CARRINHO ESTÁ VAZIO
+        </h3>
+        <div class="mt-3">
+            Navegue pelas categorias da loja ou faça uma busca pelo seu produto.
+        </div>
+        
+        <div class="p-2 btn-home text-center mt-4 mx-auto" [routerLink]="'/'">
+            Voltar para o site
         </div>
     </div>
 </div>

@@ -11,7 +11,8 @@ import { HomeComponent } from './Pages/home/home.component';
 import { CartComponent } from './Pages/cart/cart.component';
 import { ItemComponent } from './Pages/item/item.component'
 import { ShoppingModule } from './Components/shopping/shopping.module';
-import { menuReducer } from './States/menu-reducer';
+import { cartMenuReducer, menuReducer } from './States/menu-reducer';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { menuReducer } from './States/menu-reducer';
     CartComponent,
     ItemComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HeaderModule, CarouselModule, ShoppingModule, StoreModule.forRoot({message: menuReducer})],
+  imports: [BrowserModule, AppRoutingModule, HeaderModule, CarouselModule, ShoppingModule, StoreModule.forRoot({message: menuReducer, cart: cartMenuReducer})],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })

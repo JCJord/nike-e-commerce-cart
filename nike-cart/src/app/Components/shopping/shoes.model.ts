@@ -1,5 +1,5 @@
 export class Shoes {
-  public id!: number;
+  public id!: number | string;
   public name!: string
   public gender!: string
   public type!: string
