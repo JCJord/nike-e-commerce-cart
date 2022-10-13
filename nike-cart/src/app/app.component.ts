@@ -71,7 +71,7 @@ export class AppComponent {
     this.router.navigate(['/cart']);
   }
 
-  removeFromCart(id:number) {
+  removeFromCart(id:any) {
     this.unfocusCartMenu();
     this.cart.removeShoeById(id);
   }

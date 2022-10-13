@@ -1,5 +1,5 @@
 export interface selectedShoes {
-    id: number;
+    id: number | string;
     name: string
     gender: string
     type: string

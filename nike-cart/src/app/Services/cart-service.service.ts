@@ -23,8 +23,15 @@ export class CartServiceService {
         }
       }
     }else {
-      this.shoesInCart.push(shoe);
-      this.cartShoes$.next(this.shoesInCart);
+      this.shoesInCart.forEach((item) => {
+        if(item.id === shoe.id) {
+          console.log(shoe.id)
+          const uniqId = 'id' + (new Date()).getTime();
+          shoe.id = uniqId;
+        }
+      })
+      //const uniqId = 'id' + (new Date()).getTime();
+      this.setItems(shoe);
     }
   }
 
@@ -32,6 +39,10 @@ export class CartServiceService {
     return this.cartShoes$;
   }
 
+  setItems(shoe: selectedShoes){
+    this.shoesInCart.push(shoe);
+    this.cartShoes$.next(this.shoesInCart);
+  }
 
   removeShoeById(id:number) {
     this.shoesInCart = this.shoesInCart.filter(shoes => shoes.id != id);

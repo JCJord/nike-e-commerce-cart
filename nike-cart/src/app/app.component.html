@@ -8,7 +8,7 @@
     </div>
 
     <div class="px-4 item-container">
-      <div class="mt-4 d-flex text-nowrap" *ngFor="let item of cartItems">
+      <div class="mt-4 d-flex" *ngFor="let item of cartItems">
         <div class="img-box me-2">
           <img class="w-100"[src]="item.imgUrl" alt="">
         </div>
@@ -20,7 +20,7 @@
             {{ item.gender }}
           </div>
           <div>
-            R$ {{ item.total_value.toString().replace('.',',') }}
+            R$ {{ item.total_value.toFixed(2).replace('.',',') }}
           </div>
           <div class="mt-2" style="font-size: 12px;">
             <div>
