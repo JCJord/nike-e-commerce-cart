@@ -4,12 +4,12 @@ import { CartServiceService } from 'src/app/Services/cart-service.service'
 import { Shoes } from '../shoes.model'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ShoppingListService } from '../../../Services/shopping-list-service'
-import SwiperCore, { Navigation, SwiperOptions, Autoplay, Scrollbar } from 'swiper';
+import SwiperCore, { SwiperOptions, Scrollbar } from 'swiper';
 import { trigger, state, style, transition, animate } from '@angular/animations'
 import { selectedShoes } from './selected-item.model';
 import { Store } from '@ngrx/store';
 
-SwiperCore.use([Navigation, Autoplay, Scrollbar]);
+SwiperCore.use([Scrollbar]);
 interface AppState {
   cart: boolean;
 }
@@ -40,12 +40,8 @@ export class ShoppingItemComponent implements OnInit {
 
   config: SwiperOptions = {
     slidesPerView: 1,
-    navigation: true,
-    loop:true,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
+    scrollbar: { hide: false, draggable: true },
+    autoplay:true,
   };
 
   item!: Shoes;

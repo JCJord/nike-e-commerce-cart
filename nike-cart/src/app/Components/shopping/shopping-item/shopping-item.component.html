@@ -28,13 +28,7 @@
       <div class="swiper-container d-none">
         <swiper
         [config]="config"
-        [scrollbar]="{ hide: false, draggable:true }"
-        class="swiper-info"
-        [autoplay]="{
-            delay: 2500,
-            disableOnInteraction: false
-            }"
-        >
+        class="swiper-info">
           <ng-template swiperSlide *ngFor="let img of item.itemImgs">
    
               <img [src]="img" class="img-fluid w-100 h-100" alt="">
@@ -58,7 +52,7 @@
           </div>
           <input formControlName="size" class="d-none" type="number" [(ngModel)]="selectedSize">
           <div class="size-grid row gx-1 gy-1 m-0">
-            <div class="col-md-3 col-xs-1" *ngFor="let size of item.size">
+            <div class="col-3" *ngFor="let size of item.size">
               <div class="w-100 btn btn-size text-center" style="cursor: pointer;" (click)="setSize(size)" [ngClass]="{'selected-size': selectedSize == size}">
                 {{size}}
               </div>

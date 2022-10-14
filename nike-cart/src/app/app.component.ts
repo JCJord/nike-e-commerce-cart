@@ -72,5 +72,6 @@ export class AppComponent {
 
   removeFromCart(id:any) {
     this.cart.removeShoeById(id);
+    this.calcSubTotal();
   }
 }
