@@ -25,12 +25,10 @@ export class CartServiceService {
     }else {
       this.shoesInCart.forEach((item) => {
         if(item.id === shoe.id) {
-          console.log(shoe.id)
           const uniqId = 'id' + (new Date()).getTime();
           shoe.id = uniqId;
         }
       })
-      //const uniqId = 'id' + (new Date()).getTime();
       this.setItems(shoe);
     }
   }

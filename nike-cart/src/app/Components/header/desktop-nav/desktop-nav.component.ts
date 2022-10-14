@@ -50,7 +50,6 @@ export class DesktopNavComponent implements OnInit {
 
   constructor(private store: Store<AppState>, private shoppingListService: ShoppingListService, private router: Router) {
     this.focus$ = this.store.select('message');
-    console.log(this.store)
     this.focus$.subscribe((menuState: boolean) => {
       this.focusSearchOn = menuState;
 

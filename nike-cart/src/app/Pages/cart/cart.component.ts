@@ -22,7 +22,6 @@ export class CartComponent implements OnInit {
       this.totalPrice += i.price;
     }
 
-    console.log(this.items)
   }
 
   decreaseAmount(index: number) {
@@ -37,6 +36,5 @@ export class CartComponent implements OnInit {
     let { price } = this.items[index];
     this.items[index].total_value += price;
     this.items[index].amount++;
-    console.log(this.items)
   }
 }

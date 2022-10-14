@@ -63,7 +63,6 @@ export class AppComponent {
 
     })
     this.subTotal = valueCounter;
-    console.log(valueCounter)
   }
 
   finishShopping() {

@@ -97,7 +97,6 @@ export class SettingsFilterComponent implements OnInit {
     const isColorAlreadySelected = this.colors.find(color => color.code === code);
 
     if(isColorAlreadySelected?.isSelected){
-      console.log('color already selected');
       let counter = 0;
       let selectedColors = []
       for(let color of this.colors){
@@ -109,7 +108,6 @@ export class SettingsFilterComponent implements OnInit {
       if(counter > 1){
         const notSelectedColor = this.colors.find(allColors => allColors.name.toLowerCase() != color.toLocaleLowerCase());
         const selectedColor = this.colors.find(allColors => allColors.name.toLowerCase() === color.toLowerCase());
-        console.log(notSelectedColor)
         this.shoppingListService.unselectFilteredColor(notSelectedColor!.name);
         this.colors = this.colorCopy;
         this.colors = this.getAvailableColors(notSelectedColor!.name)
