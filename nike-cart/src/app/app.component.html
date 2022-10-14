@@ -41,8 +41,26 @@
         </div>
         
       </div>
+
+      <div class="text-center" style="margin-top: 43px;" *ngIf="cartItems.length == 0">
+          <div>
+              <h3>
+                SEU CARRINHO
+              </h3>
+              <h3 class="position-relative" style="bottom: 6px;">
+                ESTÁ VAZIO
+              </h3>
+          </div>
+
+          <div class="text-muted mb-3" style="font-size: 14px;">
+            Navegue pelas categorias da loja ou faça uma busca pelo seu produto.
+          </div>
+          <div class="btn btn-nike-secondary w-100" (click)="unfocusCartMenu()">
+            Continuar Comprando
+          </div>
+      </div>
     </div>
-    <div class="py-2 px-4 d-flex align-items-center position-absolute flex-column justify-content-center text-nowrap" style="min-width:100%; font-size: 24px; bottom: 5%;">
+    <div *ngIf="cartItems.length > 0" class="py-2 px-4 d-flex align-items-center position-absolute flex-column justify-content-center text-nowrap" style="min-width:100%; font-size: 24px; bottom: 5%;">
       <div class="d-flex justify-content-center py-3 w-100 mb-3" style="border-top: 1px solid lightgrey; border-bottom: 1px solid lightgrey;">
         <div class="text-muted">Subtotal: </div>
         <div class="ms-1 fw-bold"> R$ {{ subTotal.toFixed(2).replace('.',',') }}</div>

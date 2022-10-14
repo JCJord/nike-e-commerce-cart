@@ -72,6 +72,5 @@ export class AppComponent {
 
   removeFromCart(id:any) {
     this.cart.removeShoeById(id);
-    this.cartItems.length == 0 ? this.unfocusCartMenu() : null;
   }
 }
