@@ -6,10 +6,6 @@
   margin-bottom: 20px;
 }
 
-.dropdown {
-  min-width: 218px;
-}
-
 .filter-items {
   margin-left: auto;
   margin-right: 30px;
@@ -48,8 +44,46 @@
   }
 }
 
-.dropdown-item {
-  cursor: pointer !important;
+.nike-dropdown-container {
+  .nike-dropdown {
+    border: 1px solid #d0d0d0;
+    padding: 12px;
+    border-radius: 32px;
+    cursor: pointer;
+    user-select: none;
+    min-width: 178px;
+  }
+  .drop-items {
+    background: #ffff;
+    .item {
+      cursor: pointer;
+      user-select: none;
+      transition: .2s ease-in-out;
+      &:hover {
+        color: rgb(126, 126, 126);
+      }
+    }
+  }
+
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.up {
+  transform: rotate(-135deg);
+  position: relative;
+  top: 1px;
+}
+
+.down {
+  transform: rotate(45deg);
+  position: relative;
+  bottom: -25px !important;
 }
 
 @media only screen and (max-width: 400px) {
@@ -61,3 +95,5 @@
     margin-right: 0;
   }
 }
+
+

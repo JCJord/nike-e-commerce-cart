@@ -42,23 +42,25 @@
     <div class="filter-selector" (click)="toggleFilters()">
       Filtros <img src="../../assets/images/adjust.svg" alt="" />
     </div>
-
-    <div class="dropdown">
-      <button
-        class="btn dropdown-toggle"
-        type="button"
-        id="dropdownMenuButton"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        Ordenar por <span class="text-muted">{{ selectedFilter }}</span>
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" (click)="selectFilter('Menor Preço')">Menor Preço</a>
-        <a class="dropdown-item" (click)="selectFilter('Lançamento')">Lançamento</a>
-        <a class="dropdown-item" (click)="selectFilter('Masculino')">Masculino</a>
-        <a class="dropdown-item" (click)="selectFilter('Maior Preço')">Maior Preço</a>
+    
+    <div class="nike-dropdown-container position-relative" (click)="isOpen = !isOpen">
+      <div class="nike-dropdown">
+        <div class="d-flex justify-content-between">
+          <div class="selected-filter ms-1 me-5">
+            {{ selectedFilter }}
+          </div>
+  
+          <div class="arrow-box position-relative" style="right: 8px;">
+            <div class="arrow up" [ngClass]="{'down': isOpen}"></div>
+          </div>
+        </div>
+  
+      </div>
+      <div class="drop-items px-3 position-absolute w-100" [@openClose]="isOpen ? 'open' : 'closed'" style="z-index: 6; line-height: 45px; border-bottom-right-radius: 18px; border-bottom-left-radius: 18px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
+        <div class="item" (click)="selectFilter('Menor Preço')">Menor Preço</div>
+        <div class="item" (click)="selectFilter('Lançamento')">Lançamento</div>
+        <div class="item" (click)="selectFilter('Masculino')">Masculino</div>
+        <div class="item" (click)="selectFilter('Maior Preço')">Maior Preço</div>
       </div>
     </div>
   </div>
