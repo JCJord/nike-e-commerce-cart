@@ -32,7 +32,8 @@
     padding: 16px 15px;
     background: $color;
     border-radius: 200rem;
-    min-width: 327px;
+    transition: .2s ease;
+    cursor: pointer;
 }
 
 .material-symbols-outlined {
@@ -129,8 +130,20 @@
 
 .btn-nike {
     @include nikeBtn(rgb(17, 17, 17));
+
+    &:hover {
+        background: rgb(71, 71, 71);
+    }
+
 }
 .btn-nike-secondary {
     @include nikeBtn(#fff);
     border: 1px solid rgb(214, 214, 214);
+    &:hover {
+        color: #737373;
+    }
+}
+
+.cart-menu-width {
+    min-width: 327px;
 }

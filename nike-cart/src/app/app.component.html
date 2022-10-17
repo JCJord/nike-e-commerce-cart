@@ -55,7 +55,7 @@
           <div class="text-muted mb-3" style="font-size: 14px;">
             Navegue pelas categorias da loja ou faça uma busca pelo seu produto.
           </div>
-          <div class="btn btn-nike-secondary w-100" (click)="unfocusCartMenu()">
+          <div class="btn btn-nike-secondary cart-menu-width w-100" (click)="unfocusCartMenu()">
             Continuar Comprando
           </div>
       </div>
@@ -65,16 +65,19 @@
         <div class="text-muted">Subtotal: </div>
         <div class="ms-1 fw-bold"> R$ {{ subTotal.toFixed(2).replace('.',',') }}</div>
       </div>
-      <div class="btn btn-nike text-light w-100 mb-3" (click)="finishShopping()">
+      <div class="btn btn-nike cart-menu-width text-light w-100 mb-3" (click)="finishShopping()">
         Finalizar Compra
       </div>
 
-      <div class="btn btn-nike-secondary w-100" (click)="unfocusCartMenu()">
+      <div class="btn btn-nike-secondary cart-menu-width w-100" (click)="unfocusCartMenu()">
         Continuar Comprando
       </div>
     </div>
   </div>
-  <div [ngClass]="{'opacity-1': isShopping}" (click)="unfocusCartMenu()" class="overlay-2"></div>
+
+  <app-mobile-side-menu [menuActive]="mobileMenu"></app-mobile-side-menu>
+
+  <div [ngClass]="{'opacity-1': isShopping || mobileMenu}" (click)="unfocusCartMenu()" class="overlay-2"></div>
   <div [ngClass]="{'opacity-1': isSearching}" (click)="unfocusSearch()" class="overlay"></div>
   <div *ngIf="router.url != '/cart'" class="header-component">
     <app-header></app-header>

@@ -5,7 +5,7 @@
     <app-filter [shoes]="shoes" (selectedGrid)="selectedGrid($event)" (showFilters)="filtersOnToggle($event)"></app-filter>
     
     <div class="px-3 d-flex">
-      <div class="sidenav me-3" [ngClass]="{'disabled-filter': !filterIsActive}">
+      <div class="sidenav me-3 mt-4" [ngClass]="{'disabled-filter': !filterIsActive}">
         <div style="min-width: 252px;">
           <app-settings-filter #filterSettings [hidden]="!filterIsActive"></app-settings-filter>
         </div>

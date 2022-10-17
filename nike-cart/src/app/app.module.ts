@@ -11,7 +11,7 @@ import { HomeComponent } from './Pages/home/home.component';
 import { CartComponent } from './Pages/cart/cart.component';
 import { ItemComponent } from './Pages/item/item.component'
 import { ShoppingModule } from './Components/shopping/shopping.module';
-import { cartMenuReducer, menuReducer } from './States/menu-reducer';
+import { cartMenuReducer, menuReducer, mobileMenuReducer } from './States/menu-reducer';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -22,7 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CartComponent,
     ItemComponent,
   ],
-  imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule, HeaderModule, CarouselModule, ShoppingModule, StoreModule.forRoot({message: menuReducer, cart: cartMenuReducer})],
+  imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule, HeaderModule, CarouselModule, ShoppingModule, StoreModule.forRoot({message: menuReducer, cart: cartMenuReducer, mobile: mobileMenuReducer})],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,43 @@
+.mobile-menu {
+    overflow: hidden ;
+    right: 0;
+    width: 0;
+    z-index: 99999999;
+    transition: width .3s ease;
+    background: white;
+    height: 100%;
+    width: 0px;
+    
+    .mobile-items {
+        h3 {
+            line-height: 50px;
+            cursor: pointer;
+            transition: .2s ease;
+            &:hover {
+                color: #737373
+            }
+        }
+    }
+}
+
+.show-menu {
+    width: 275px;
+}
+
+@mixin nikeBtn ($color){
+    padding: 16px 15px;
+    background: $color;
+    border-radius: 200rem;
+    transition: .2s ease;
+    cursor: pointer;
+}
+
+.btn-nike {
+    @include nikeBtn(rgb(17, 17, 17));
+    text-decoration: none;
+    min-width: 124px;
+    &:hover {
+        background: rgb(71, 71, 71);
+    }
+
+}

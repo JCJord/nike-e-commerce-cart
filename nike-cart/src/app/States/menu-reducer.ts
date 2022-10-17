@@ -29,3 +29,18 @@ export function cartMenuReducer(state:boolean = false, action: Action) {
         return state = state;
     }
 }
+
+export function mobileMenuReducer(state:boolean = false, action: Action) {
+    switch (action.type) {
+
+        case 'show_mobile_menu': 
+            return state = true;
+
+        case 'hide_mobile_menu':
+            return state = false;
+
+        default: 
+        
+        return state = state;
+    }
+}

@@ -1,17 +1,18 @@
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container">
-    <div class="burger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <a href="" class="logo"
-      ><img src="../../assets/images/nike.png" alt=""
+    <a [routerLink]="'/'" class="logo"
+    ><img src="../../assets/images/nike.png" alt=""
     /></a>
-
-    <a routerLink="/cart" class="cart-mobile"
+    <div class="d-flex">
+      <a (click)="focusCartMenu()" class="cart-mobile"
       ><img src="../../assets/images/cart-mobile.svg" alt=""
-    /></a>
+      /></a>
+      <div class="burger" (click)="focusMobileMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
   </div>
 </nav>
 

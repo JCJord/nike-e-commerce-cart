@@ -5,11 +5,28 @@
   border-right: none;
   border-color: $lightGrey;
 }
+
+.cart-mobile {
+  margin-top: 2px;
+  cursor: pointer;
+  img {    
+    transition: .1s ease-in-out;
+    &:hover {
+      opacity: .6;
+    }
+  }
+} 
+
 .search-input {
   border-left: none;
   border-radius: 0px;
   border-color: $lightGrey;
   font-size: 13px;
+}
+
+.burger {
+  margin-left: 35px;
+  cursor: pointer;
 }
 
 .input-wrapper {

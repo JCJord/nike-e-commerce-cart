@@ -8,6 +8,7 @@ import { CartServiceService } from './Services/cart-service.service';
 interface AppState {
   message: boolean;
   cart: boolean;
+  mobile: boolean;
 }
 @Component({
   selector: 'app-root',
@@ -18,17 +19,24 @@ export class AppComponent {
   cartItems!: Array<selectedShoes>;
   focus$!: Observable<boolean>;
   cartMenu$!: Observable<boolean>;
+  mobileMenu$!: Observable<boolean>;
   title = 'nike-cart';
   isSearching!: boolean;
   isShopping!: boolean;
+  mobileMenu!: boolean;
   subTotal = 0;
   
   constructor(private store: Store<AppState>, public router: Router, private cart: CartServiceService){
     this.cartMenu$ = this.store.select('cart');
     this.focus$ = this.store.select('message');
+    this.mobileMenu$ = this.store.select('mobile');
 
     this.focus$.subscribe((menuState: boolean) => {
       this.isSearching = menuState;
+    });
+
+    this.mobileMenu$.subscribe((menuState: boolean) => {
+      this.mobileMenu = menuState;
     });
 
     this.cartMenu$.subscribe((cartMenuState: boolean)=> {
@@ -53,6 +61,7 @@ export class AppComponent {
 
   unfocusCartMenu() {
     this.store.dispatch({type: 'hide_cart_menu'});
+    this.store.dispatch({type: 'hide_mobile_menu'});
   }
 
   calcSubTotal() {
