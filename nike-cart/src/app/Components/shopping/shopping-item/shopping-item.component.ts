@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, HostListener, OnInit } from '@angular/core'
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import { CartServiceService } from 'src/app/Services/cart-service.service'
 import { Shoes } from '../shoes.model'
@@ -34,6 +34,7 @@ interface AppState {
   ],
 })
 export class ShoppingItemComponent implements OnInit {
+  
   cartForm = new FormGroup({
     'size': new FormControl(null, [Validators.required])
   });
@@ -50,6 +51,8 @@ export class ShoppingItemComponent implements OnInit {
   isLoading = true;
   descriptionToggler = true;
   isSizeInputValid = true;
+
+  cepInfo = false;
 
   constructor (
     private shoppingListService: ShoppingListService,

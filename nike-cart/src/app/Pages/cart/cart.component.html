@@ -108,15 +108,24 @@
             </div>
 
             <div class="col-lg-2 text-center fw-bold" style="text-align:right;">
-                <!-- R$ {{ totalPrice.toFixed(2).replace('.',',') }} -->
                 R$ {{ i.total_value.toFixed(2).replace('.',',') }}
             </div>
             
             <div class="col-lg-1"> X </div>
         </div>
-
+        <div class="w-100 mt-4 d-flex align-items-center" style="height: 60px; background: #f7f7f7;">
+            <div style="margin-left: auto; padding-right: 6.3em;">
+                <div class="d-flex">
+                    <div style="padding-right: 6.3em;">
+                        Subtotal:
+                    </div>
+                    <div>
+                        R$ 0,00
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
     <div class="mx-auto fit-content position-relative" style="margin-top: 65px" *ngIf="items.length == 0">
         <h3 class="text-uppercase text-center">
             SEU CARRINHO ESTÁ VAZIO

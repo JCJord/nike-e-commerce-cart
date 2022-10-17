@@ -12,6 +12,7 @@ import { CartComponent } from './Pages/cart/cart.component';
 import { ItemComponent } from './Pages/item/item.component'
 import { ShoppingModule } from './Components/shopping/shopping.module';
 import { cartMenuReducer, menuReducer } from './States/menu-reducer';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { cartMenuReducer, menuReducer } from './States/menu-reducer';
     CartComponent,
     ItemComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HeaderModule, CarouselModule, ShoppingModule, StoreModule.forRoot({message: menuReducer, cart: cartMenuReducer})],
+  imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule, HeaderModule, CarouselModule, ShoppingModule, StoreModule.forRoot({message: menuReducer, cart: cartMenuReducer})],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })

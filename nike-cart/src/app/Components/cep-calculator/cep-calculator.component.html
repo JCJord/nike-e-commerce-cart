@@ -1,0 +1,39 @@
+<div class="cep-items">
+    <div class="mt-3 fs-14">
+       Calcule o frete e o prazo de entrega estimados para sua região.
+    </div>
+
+    <div class="mt-4 mb-1 fs-14">
+       Insira seu cep
+    </div>
+
+    <form [formGroup]="cepForm" (submit)="calcDeliveryTime()">
+       <div class="cep-search-box position-relative d-flex align-items-center">
+         <input type="text" mask="/^[0-9]{5}-[0-9]{3}$/" (click)="checkInputValidation()" maxlength="8" formControlName="cep" placeholder="00000-000" [ngClass]="{'border-alert': cepValidations.isValid == false}">
+         <button type="submit" class="btn btn-calc btn-cart d-flex align-items-center justify-content-center">
+            <div [hidden]="cepValidations.isLoading">
+                Calcular
+            </div>
+            <div class="spinner-box" *ngIf="cepValidations.isLoading">
+                <div class="lds-ring position-relative"><div></div><div></div><div></div><div></div></div>
+            </div>
+         </button>
+       </div>
+     </form>
+     <div class="mb-1" *ngIf="cepValidations.isValidOnSubmit == false">
+       <small class="text-danger">
+         Digite um cep válido
+       </small>
+     </div>
+    <a class="nike-link" href="https://buscacepinter.correios.com.br/app/endereco/index.php">
+       Não sei meu CEP
+    </a>
+
+    <div class="mt-2" *ngIf="cepValidations.isCalculated">
+        Entrega Normal até 3 dias.
+    </div>
+
+    <div class="mt-5 nike-link">
+       Dúvidas? Confira a nossa Política de Frete e Entregas.
+    </div>
+  </div>

@@ -10,7 +10,6 @@ import { Shoes } from '../shoes.model'
 })
 export class ShoppingListComponent {
   @ViewChild('filterSettings') filter!: SettingsFilterComponent;
- 
 
   @Input()
   shoes!: Shoes[];
