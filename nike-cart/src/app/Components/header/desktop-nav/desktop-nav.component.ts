@@ -89,14 +89,14 @@ export class DesktopNavComponent implements OnInit {
     }
 
     setTimeout(()=>{
-      this.shoppingListService.filterShoes(name);
+      this.shoppingListService.filterShoesByName(name);
     },140);
   }
 
   onSubmit() {
     this.store.dispatch({type:'closed'});
     setTimeout(()=>{
-      this.shoppingListService.filterShoes(this.shoeName);
+      this.shoppingListService.filterShoesByName(this.shoeName);
     },140);
   }
 }

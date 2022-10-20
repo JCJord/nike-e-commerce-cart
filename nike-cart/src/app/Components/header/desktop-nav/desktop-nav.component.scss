@@ -66,6 +66,7 @@
   height: 38px;
   background: #f5f5f5;
   border-bottom-right-radius: 18px;
+  border: none;
   border-top-right-radius: 18px;
   &:focus {
       outline: none ;
@@ -85,6 +86,7 @@
   background: #f5f5f5 !important;
   min-width: 41px;
   min-height: 38px;
+  border: none;
   img {
     transition: .2s ease;
   }
