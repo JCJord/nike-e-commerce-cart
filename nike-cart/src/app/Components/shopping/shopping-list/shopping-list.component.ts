@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core'
+import { Component, Input, ViewChild } from '@angular/core'
 import { ShoppingListService } from 'src/app/Services/shopping-list-service';
 import { SettingsFilterComponent } from '../../settings-filter/settings-filter.component';
 import { Shoes } from '../shoes.model'
@@ -6,7 +6,7 @@ import { Shoes } from '../shoes.model'
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
-  styleUrls: ['./shopping-list.component.scss']
+  styleUrls: ['./shopping-list.component.scss'],
 })
 export class ShoppingListComponent {
   @ViewChild('filterSettings') filter!: SettingsFilterComponent;

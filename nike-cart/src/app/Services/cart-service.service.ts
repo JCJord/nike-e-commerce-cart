@@ -42,7 +42,7 @@ export class CartServiceService {
     this.cartShoes$.next(this.shoesInCart);
   }
 
-  removeShoeById(id:number) {
+  removeShoeById(id:number | string) {
     this.shoesInCart = this.shoesInCart.filter(shoes => shoes.id != id);
     this.cartShoes$.next(this.shoesInCart);
   }

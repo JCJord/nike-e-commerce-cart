@@ -10,18 +10,15 @@ import { CartServiceService } from '../../Services/cart-service.service';
 })
 export class CartComponent implements OnInit {
   items: selectedShoes[] = [];
-  totalPrice = 0;
   initialValues: Array<number> = [];
+  subTotal = 0;
   constructor(private cartService:CartServiceService) { }
 
   ngOnInit(): void {
     this.cartService.getItems().subscribe((shoes)=>{
       this.items = shoes;
     })
-    for(let i of this.items){
-      this.totalPrice += i.price;
-    }
-
+    this.calcSubTotal();
   }
 
   decreaseAmount(index: number) {
@@ -29,6 +26,7 @@ export class CartComponent implements OnInit {
       let { price } = this.items[index];
       this.items[index].amount--;
       this.items[index].total_value = this.items[index].total_value -price; 
+      this.calcSubTotal();
     }
   }
 
@@ -36,5 +34,19 @@ export class CartComponent implements OnInit {
     let { price } = this.items[index];
     this.items[index].total_value += price;
     this.items[index].amount++;
+    this.calcSubTotal();
+  }
+
+  calcSubTotal() {
+    let valueCounter = 0;
+    this.items.forEach((item)=>{
+      valueCounter += item.total_value;
+    })
+    this.subTotal = valueCounter;
+  }
+
+  removeFromCart(id: number | string) {
+    this.cartService.removeShoeById(id);
+    this.calcSubTotal();
   }
 }

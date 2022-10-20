@@ -35,7 +35,7 @@
         </div>
     </div>
     <div *ngIf="items.length > 0" class="cart-box mx-auto mt-5">
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center cart-routes">
             <h2>Confira seu carrinho</h2>
 
             <div class="d-flex">
@@ -48,7 +48,7 @@
             </div>
         </div>
 
-        <div class="row gx-5 mt-5" style="font-size: 14px">
+        <div class="row gx-5 mt-5 cart-row-header" style="font-size: 14px">
             <div class="col-lg-5">
                 Produtos
             </div>
@@ -69,15 +69,22 @@
 
                 
         <div class="row mt-4" *ngFor="let i of items; let id = index;">
-            <div class="col-lg-5">
-                <div class="d-flex" style="font-size: 12px;">
-                    <div class="me-3" style="width: 62px;">
+            <div class="col-xl-5 col-lg-5 ">
+                <div class="d-flex item-data" style="font-size: 12px;">
+                    <div class="me-3 item-img">
                         <img class="w-100" [src]="i.imgUrl" alt="">
                     </div>
                     <div>
-                        <div>
-                            {{i.name}}
-                            {{i.gender}}
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                {{i.name}}
+                                {{i.gender}}
+                            </div>
+                            <div (click)="removeFromCart(i.id)" class="delete-icon-box d-flex justify-content-center align-items-center delete-mobile">
+                                <span class="material-symbols-outlined">
+                                delete
+                                </span>
+                            </div> 
                         </div>
                         <div class="mt-1 mb-1">
                             Cor: {{i.color}}
@@ -88,7 +95,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2">
+            <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-6 counter-box">
                 <div class="number-counter d-flex align-items-center justify-content-center">
                     <div class="minus" (click)="decreaseAmount(id)">
                         -
@@ -103,24 +110,32 @@
                 </div>
             </div>
 
-            <div class="col-lg-2 text-center">
+            <div class="col-xl-2 col-lg-2 col-md-6 text-center unit-value">
                 R$ {{ initialValues[id] ? initialValues[id].toString().replace('.',',') : i.price.toFixed(2).replace('.',',') }}
             </div>
 
-            <div class="col-lg-2 text-center fw-bold" style="text-align:right;">
+            <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-6 text-center fw-bold total-value">
                 R$ {{ i.total_value.toFixed(2).replace('.',',') }}
             </div>
             
-            <div class="col-lg-1"> X </div>
+            <div class="col-xl-1 col-lg-1 delete-box">     
+                <!-- (click)="removeFromCart(item.id)"
+                 -->
+                <div (click)="removeFromCart(i.id)" class="delete-icon-box d-flex justify-content-center align-items-center">
+                    <span class="material-symbols-outlined">
+                    delete
+                    </span>
+                </div> 
+            </div>
         </div>
-        <div class="w-100 mt-4 d-flex align-items-center" style="height: 60px; background: #f7f7f7;">
+        <div class="w-100 mt-4 d-flex align-items-center subtotal-box">
             <div style="margin-left: auto; padding-right: 6.3em;">
                 <div class="d-flex">
                     <div style="padding-right: 6.3em;">
                         Subtotal:
                     </div>
                     <div>
-                        R$ 0,00
+                        R$ {{subTotal.toFixed(2).replace('.',',')}}
                     </div>
                 </div>
             </div>

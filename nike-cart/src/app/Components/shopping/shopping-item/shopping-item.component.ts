@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import { CartServiceService } from 'src/app/Services/cart-service.service'
 import { Shoes } from '../shoes.model'
