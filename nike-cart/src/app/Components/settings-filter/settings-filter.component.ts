@@ -155,8 +155,6 @@ export class SettingsFilterComponent implements OnInit {
   
   selectColor(index: number) {
     this.colors[index].isSelected = true;
-    
-  
   }
 
   resetSelection() {

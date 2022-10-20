@@ -16,21 +16,37 @@
   </div>
 </nav>
 
-<div class="input-wrapper">
-  <div class="container">
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <button class="btn btn-outline-secondary search-btn" type="button">
-          <img src="../../../assets/images/search.svg" alt="" />
-        </button>
+<div class="position-relative">
+  <div class="input-wrapper">
+    <div class="container">
+      <div class="input-group d-flex">
+        <div class="input-group-prepend">
+          <button class="btn btn-outline-secondary search-btn" type="button">
+            <img src="../../../assets/images/search.svg" alt="" />
+          </button>
+        </div>
+        <input
+          type="text"
+          class="form-control search-input"
+          placeholder="O que você procura?"
+          (click)="slideDownMenu()"
+          aria-label=""
+          aria-describedby="basic-addon1"
+        />
       </div>
-      <input
-        type="text"
-        class="form-control search-input"
-        placeholder="O que você procura?"
-        aria-label=""
-        aria-describedby="basic-addon1"
-      />
     </div>
+  </div>
+
+  <div class="w-100 position-relative search-menu ps-3" [ngClass]="{'active-search': isSearchActive }">
+      <h3>
+        Mercurial
+      </h3>
+      <h3>
+        Air Max
+      </h3>
+      <h3>
+        Winflo
+      </h3>
+      
   </div>
 </div>

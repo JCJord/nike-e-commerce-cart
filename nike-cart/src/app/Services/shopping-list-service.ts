@@ -143,7 +143,7 @@ export class ShoppingListService {
     },400);
   }
 
-  filterShoes(selectedFilter: string) {
+  filterShoesByName(selectedFilter: string) {
     switch(selectedFilter) {
       case 'Menor Preço':
         this.isLoading.next(true);

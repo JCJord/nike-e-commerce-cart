@@ -41,7 +41,7 @@ export class FilterComponent {
 
   selectFilter(filter: string) {
     this.selectedFilter = filter;
-    this.shoppingListService.filterShoes(filter);
+    this.shoppingListService.filterShoesByName(filter);
   }
 
   selectGridSize(gridColSize: number) {

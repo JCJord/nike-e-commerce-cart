@@ -3,13 +3,11 @@
     <a href="https://jcjord.github.io/portfolio" class="btn-nike text-light w-50 text-center">
       Portfolio
     </a>
-    <div class="mt-5 mobile-items">
-      <h3>Chuteiras</h3>
-      <h3>Chuteiras</h3>
-      <h3>Chuteiras</h3>
-      <h3>Chuteiras</h3>
-      <h3>Chuteiras</h3>
 
+    <div class="mt-5">
+      <div class="mobile-items" *ngFor="let item of menuLinks">
+        <h3 (click)="searchShoeByName(item.link)">{{item.link}}</h3>
+      </div>
     </div>
   </div>
 </div>
