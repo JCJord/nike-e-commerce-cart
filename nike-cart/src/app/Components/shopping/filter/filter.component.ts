@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Shoes } from 'src/app/Components/shopping/shoes.model';
 import { ShoppingListService } from 'src/app/Services/shopping-list-service';
 
@@ -23,9 +23,6 @@ import { ShoppingListService } from 'src/app/Services/shopping-list-service';
   ],
 })
 export class FilterComponent {
-  selectedFilter = 'Maior Preço'
-  activeGrid!: number;
-  filterIsActive = true;
   isOpen!: boolean;
 
   @Input()
@@ -36,6 +33,10 @@ export class FilterComponent {
 
   @Output()
   showFilters = new EventEmitter<boolean>();
+
+  selectedFilter = 'Maior Preço'
+  activeGrid!: number;
+  filterIsActive = true;
 
   constructor(private shoppingListService:ShoppingListService) { }
 

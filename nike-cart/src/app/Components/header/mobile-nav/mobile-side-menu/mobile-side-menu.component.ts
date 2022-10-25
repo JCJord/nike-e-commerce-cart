@@ -30,14 +30,14 @@ export class MobileSideMenuComponent implements OnInit {
     }
   ]
 
-  constructor(private shoppingListService: ShoppingListService, private store: Store<boolean>,) { }
+  constructor(private shoppingListService: ShoppingListService, private store: Store<boolean>) { }
 
   ngOnInit(): void {
   }
 
   searchShoeByName(name: string) {
-    this.shoppingListService.filterShoesByName(name);
     this.store.dispatch({type: "hide_mobile_menu"})
+    this.shoppingListService.filterShoesByName(name);
   }
 
 }

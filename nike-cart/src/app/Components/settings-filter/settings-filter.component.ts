@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ColorService } from 'src/app/Services/color.service';
 import { ShoppingListService } from 'src/app/Services/shopping-list-service';
 import { Shoes } from '../shopping/shoes.model';
 
@@ -86,11 +87,13 @@ export class SettingsFilterComponent implements OnInit {
   ];
 
   colorCopy = [...this.colors];
-  currentState: any;
-  constructor(private shoppingListService: ShoppingListService) { }
-
+  constructor(private shoppingListService: ShoppingListService, private colorService: ColorService) { }
   ngOnInit(): void {
-    this.resetSelection();
+    this.colorService.getCurrentColor().subscribe((previousColorState:colors[])=>{
+      if(previousColorState.length) {
+        this.colors = previousColorState;
+      }
+    })
   }
 
   filterByColor(color: string, code: string) {
@@ -134,7 +137,6 @@ export class SettingsFilterComponent implements OnInit {
 
   getAvailableColors(color: string):Array<colors> {
     let allShoes: Array<Shoes> = [];
-
     this.shoppingListService.getShoes().subscribe((shoes)=>{
       allShoes = shoes;
     });
@@ -162,4 +164,7 @@ export class SettingsFilterComponent implements OnInit {
     this.shoppingListService.getAllShoes();
   }
 
+  ngOnDestroy() {
+    this.colorService.setCurrentColor(this.colors);
+  }
 }

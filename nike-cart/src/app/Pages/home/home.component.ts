@@ -11,12 +11,16 @@ export class HomeComponent implements OnInit {
   shoes!: Shoes[];
   shoesAmount!: number;
   
-  constructor(private shoppingListService:ShoppingListService) { }
-
+  constructor(private shoppingListService:ShoppingListService) { 
+  }
+  
   ngOnInit(): void {
+    this.getShoes();
+  }
+
+  getShoes() {
     this.shoppingListService.getShoes().subscribe((shoes: Shoes[]) => {
       this.shoes = shoes;
-    })
-    this.shoesAmount = this.shoppingListService.getAmountOfShoes();
+    });
   }
 }

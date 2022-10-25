@@ -178,12 +178,6 @@
   top: 53px;
   background: rgb(255, 255, 255);
   width: 100% !important;
-  
-}
-
-.move-header-up {
-
-  transform: translateY(-52px);
 }
 
 .custom-w {
@@ -195,7 +189,7 @@
 }
 
 .width-on-focus {
-  width: 5% !important;
+  width: 0% !important;
 }
 
 .d-block {
