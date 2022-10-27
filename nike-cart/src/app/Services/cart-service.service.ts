@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { Shoes } from 'src/app/Components/shopping/shoes.model';
-import { selectedShoes } from '../Components/shopping/shopping-item/selected-item.model';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { shoppingItem } from '../Pages/item/shopping-item/shopping-item.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartServiceService {
-  shoesInCart: selectedShoes[] = [];
-  cartShoes$: Subject<selectedShoes[]> = new BehaviorSubject(this.shoesInCart);
+  shoesInCart: shoppingItem[] = [];
+  cartShoes$: Subject<shoppingItem[]> = new BehaviorSubject(this.shoesInCart);
   
   constructor() { }
 
-  addShoes(shoe: selectedShoes) {
+  addShoes(shoe: shoppingItem) {
     const isAlreadyIn = this.shoesInCart.find(items => items.name === shoe.name && items.selectedSize === shoe.selectedSize);
     
     if(isAlreadyIn) {
@@ -37,7 +36,7 @@ export class CartServiceService {
     return this.cartShoes$;
   }
 
-  setItems(shoe: selectedShoes){
+  setItems(shoe: shoppingItem){
     this.shoesInCart.push(shoe);
     this.cartShoes$.next(this.shoesInCart);
   }

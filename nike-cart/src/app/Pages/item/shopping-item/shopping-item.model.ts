@@ -1,4 +1,4 @@
-export interface selectedShoes {
+export interface shoppingItem {
     id: number | string;
     name: string
     gender: string

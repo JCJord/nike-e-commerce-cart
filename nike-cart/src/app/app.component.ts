@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { selectedShoes } from './Components/shopping/shopping-item/selected-item.model';
+import { shoppingItem } from './Pages/item/shopping-item/shopping-item.model';
 import { CartServiceService } from './Services/cart-service.service';
 
 interface AppState {
@@ -16,7 +16,7 @@ interface AppState {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  cartItems!: Array<selectedShoes>;
+  cartItems!: Array<shoppingItem>;
   focus$!: Observable<boolean>;
   cartMenu$!: Observable<boolean>;
   mobileMenu$!: Observable<boolean>;

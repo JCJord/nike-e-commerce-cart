@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Shoes } from 'src/app/Components/shopping/shoes.model';
-import { selectedShoes } from 'src/app/Components/shopping/shopping-item/selected-item.model';
 import { CartServiceService } from '../../Services/cart-service.service';
+import { shoppingItem } from '../item/shopping-item/shopping-item.model';
 
 @Component({
   selector: 'app-cart',
@@ -9,7 +9,7 @@ import { CartServiceService } from '../../Services/cart-service.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  items: selectedShoes[] = [];
+  items: shoppingItem[] = [];
   initialValues: Array<number> = [];
   subTotal = 0;
   constructor(private cartService:CartServiceService) { }

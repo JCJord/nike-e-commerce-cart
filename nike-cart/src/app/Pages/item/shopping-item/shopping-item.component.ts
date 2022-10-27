@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import { CartServiceService } from 'src/app/Services/cart-service.service'
-import { Shoes } from '../shoes.model'
+import { Shoes } from '../../../Components/shopping/shoes.model'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ShoppingListService } from '../../../Services/shopping-list-service'
 import SwiperCore, { SwiperOptions, Scrollbar } from 'swiper';
 import { trigger, state, style, transition, animate } from '@angular/animations'
-import { selectedShoes } from './selected-item.model';
+import { shoppingItem } from './shopping-item.model';
 import { Store } from '@ngrx/store';
 
 SwiperCore.use([Scrollbar]);
@@ -78,7 +78,7 @@ export class ShoppingItemComponent implements OnInit {
       cartItem['selectedSize'] = this.selectedSize;
       cartItem['amount'] = 1;
       cartItem['total_value'] = this.item.price;
-      this.cartService.addShoes(cartItem as selectedShoes);
+      this.cartService.addShoes(cartItem as shoppingItem);
       
       this.store.dispatch({type: "show_cart_menu"});
     }else {

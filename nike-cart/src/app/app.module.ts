@@ -14,6 +14,7 @@ import { ShoppingModule } from './Components/shopping/shopping.module';
 import { cartMenuReducer, menuReducer, mobileMenuReducer } from './States/menu-reducer';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ItemModule } from './Pages/item/item.module';
 
 
 @NgModule({
@@ -21,9 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     HomeComponent,
     CartComponent,
-    ItemComponent,
   ],
-  imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule, HeaderModule, CarouselModule, ShoppingModule, StoreModule.forRoot({message: menuReducer, cart: cartMenuReducer, mobile: mobileMenuReducer})],
+  imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule, HeaderModule, CarouselModule, ShoppingModule, ItemModule, StoreModule.forRoot({message: menuReducer, cart: cartMenuReducer, mobile: mobileMenuReducer})],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
