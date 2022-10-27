@@ -13,6 +13,7 @@ import { ItemComponent } from './Pages/item/item.component'
 import { ShoppingModule } from './Components/shopping/shopping.module';
 import { cartMenuReducer, menuReducer, mobileMenuReducer } from './States/menu-reducer';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({

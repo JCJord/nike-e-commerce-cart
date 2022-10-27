@@ -8,7 +8,7 @@ import { SettingsFilterComponent } from '../settings-filter/settings-filter.comp
 import { SwiperModule } from 'swiper/angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CepCalculatorComponent } from '../cep-calculator/cep-calculator.component';
-
+import { RouterTestingModule } from '@angular/router/testing';
 
 @NgModule({
   declarations: [ShoppingListComponent, ShoppingItemComponent, FilterComponent, SettingsFilterComponent, CepCalculatorComponent],
@@ -16,7 +16,8 @@ import { CepCalculatorComponent } from '../cep-calculator/cep-calculator.compone
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
-    SwiperModule
+    SwiperModule,
+    RouterTestingModule,
   ],
   exports:[ShoppingListComponent,ShoppingItemComponent, FilterComponent, SettingsFilterComponent, CepCalculatorComponent]
 })

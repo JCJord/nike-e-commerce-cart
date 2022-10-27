@@ -5,7 +5,7 @@ import { ShoppingListService } from 'src/app/Services/shopping-list-service';
 
 import { FilterComponent } from './filter.component';
 
-fdescribe('FilterComponent', () => {
+describe('FilterComponent', () => {
   let component: FilterComponent;
   let fixture: ComponentFixture<FilterComponent>;
   let el: DebugElement;

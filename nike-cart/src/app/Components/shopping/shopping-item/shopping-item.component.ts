@@ -58,7 +58,6 @@ export class ShoppingItemComponent implements OnInit {
     private shoppingListService: ShoppingListService,
     private route: ActivatedRoute,
     private cartService:CartServiceService,
-    private router: Router,
     private store: Store<AppState>
   ) {
     setTimeout(()=> {

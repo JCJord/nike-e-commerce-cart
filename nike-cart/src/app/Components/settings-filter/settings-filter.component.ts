@@ -88,6 +88,7 @@ export class SettingsFilterComponent implements OnInit {
 
   colorCopy = [...this.colors];
   constructor(private shoppingListService: ShoppingListService, private colorService: ColorService) { }
+  
   ngOnInit(): void {
     this.colorService.getCurrentColor().subscribe((previousColorState:colors[])=>{
       if(previousColorState.length) {

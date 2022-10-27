@@ -127,7 +127,7 @@
           <i class="arrow bottom" [ngClass]="{'top': cepInfo}"></i>
        </div>
 
-       <app-cep-calculator *ngIf="cepInfo"></app-cep-calculator>
+       <app-cep-calculator [hidden]="!cepInfo"></app-cep-calculator>
      </div>
 
     </div>
