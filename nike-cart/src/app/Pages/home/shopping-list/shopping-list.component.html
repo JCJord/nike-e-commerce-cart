@@ -17,7 +17,7 @@
             <div class="img-box w-100" style="transition: all .3s ease-in-out;">
               <div *ngIf="isLoading" class="loader-img w-100"></div>
               <img [hidden]="isLoading" (load)="onLoad()" class="img-fluid" [src]="shoe.imgUrl" alt="" />
-              <a  [routerLink]="['item/' + i]" class="item-button w-100 mx-auto">COMPRAR</a>
+              <a  [routerLink]="['item/' + i]" class="item-button w-100 mx-auto" >COMPRAR</a>
             </div>
       
             <div>

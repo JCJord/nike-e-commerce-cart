@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { shoppingItem } from './Pages/item/shopping-item/shopping-item.model';
+import { shoppingItem } from './entities/shopping-item.model';
 import { CartServiceService } from './Services/cart-service.service';
 
 interface AppState {

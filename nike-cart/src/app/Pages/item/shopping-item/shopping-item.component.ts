@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import { CartServiceService } from 'src/app/Services/cart-service.service'
-import { Shoes } from '../../../Components/shopping/shoes.model'
+import { Shoes } from '../../../entities/shoes.model'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ShoppingListService } from '../../../Services/shopping-list-service'
 import SwiperCore, { SwiperOptions, Scrollbar } from 'swiper';
 import { trigger, state, style, transition, animate } from '@angular/animations'
-import { shoppingItem } from './shopping-item.model';
+import { shoppingItem } from '../../../entities/shopping-item.model';
 import { Store } from '@ngrx/store';
 
 SwiperCore.use([Scrollbar]);

@@ -1,5 +1,5 @@
 import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
-import { Shoes } from '../Components/shopping/shoes.model'
+import { Shoes } from '../entities/shoes.model'
 
 export class ShoppingListService {
   private shoes: Shoes[] = [

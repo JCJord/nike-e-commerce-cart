@@ -12,6 +12,15 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+
 .swiper-info {
   .swiper-button-prev, .swiper-button-next {
     &::after {

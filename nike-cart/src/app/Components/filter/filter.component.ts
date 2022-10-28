@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Shoes } from 'src/app/Components/shopping/shoes.model';
+import { Shoes } from 'src/app/entities/shoes.model';
 import { ShoppingListService } from 'src/app/Services/shopping-list-service';
 
 @Component({

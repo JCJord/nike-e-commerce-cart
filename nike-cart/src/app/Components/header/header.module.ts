@@ -11,13 +11,13 @@ import { MobileSideMenuComponent } from './mobile-nav/mobile-side-menu/mobile-si
 
 
 @NgModule({
-  declarations: [HeaderComponent,MobileNavComponent,DesktopNavComponent, MobileSideMenuComponent, MobileSideMenuComponent],
+  declarations: [HeaderComponent, MobileNavComponent, DesktopNavComponent, MobileSideMenuComponent, MobileSideMenuComponent],
   imports: [
     CommonModule,
     RouterModule,
     BrowserAnimationsModule,
     FormsModule
   ],
-  exports:[HeaderComponent,MobileNavComponent,DesktopNavComponent, MobileSideMenuComponent]
+  exports:[HeaderComponent, MobileNavComponent, DesktopNavComponent, MobileSideMenuComponent]
 })
 export class HeaderModule { }

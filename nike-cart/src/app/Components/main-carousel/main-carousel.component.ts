@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingListService } from 'src/app/Services/shopping-list-service';
-import { Shoes } from '../shopping/shoes.model';
+import { Shoes } from '../../entities/shoes.model';
 
 @Component({
   selector: 'app-main-carousel',

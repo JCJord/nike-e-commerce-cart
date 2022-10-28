@@ -11,7 +11,7 @@ export const routes: Routes = [
             path: ':id', component: ShoppingItemComponent
           }
         ]
-      },
+    },
 ];
 
 @NgModule({

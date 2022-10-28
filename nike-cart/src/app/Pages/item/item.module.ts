@@ -9,16 +9,17 @@ import { SharedModule } from 'src/app/shared/shared.module';
 @NgModule({
   declarations: [
     ItemComponent,
-    ShoppingItemComponent
+    ShoppingItemComponent,
   ],
   imports: [
     CommonModule,
-    ItemRoutingModule,
-    SharedModule
+    SharedModule,
+    ItemRoutingModule
   ],
   exports:[
     ItemComponent,
-    ShoppingItemComponent
+    ShoppingItemComponent,
+    ItemRoutingModule
   ]
 })
 export class ItemModule { }
