@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ColorService } from 'src/app/Services/color.service';
-import { ShoppingListService } from 'src/app/Services/shopping-list-service';
+import { ColorService } from 'src/app/services/color.service';
+import { ShoppingListService } from 'src/app/services/shopping-list-service';
 import { Shoes } from '../../entities/shoes.model';
 
 export interface colors {

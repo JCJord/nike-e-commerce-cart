@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SwiperModule } from 'swiper/angular';
-import { CepCalculatorComponent } from '../Components/cep-calculator/cep-calculator.component';
-import { FilterComponent } from '../Components/filter/filter.component';
-import { CarouselModule } from '../Components/main-carousel/carousel.module';
-import { SettingsFilterComponent } from '../Components/settings-filter/settings-filter.component';
+import { CepCalculatorComponent } from '../components/cep-calculator/cep-calculator.component';
+import { FilterComponent } from '../components/filter/filter.component';
+import { CarouselModule } from '../components/main-carousel/carousel.module';
+import { SettingsFilterComponent } from '../components/settings-filter/settings-filter.component';
 
 @NgModule({
     declarations: [

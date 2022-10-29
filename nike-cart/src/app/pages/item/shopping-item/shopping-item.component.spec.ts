@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
-import { CartServiceService } from 'src/app/Services/cart-service.service';
-import { ShoppingListService } from 'src/app/Services/shopping-list-service';
+import { CartServiceService } from 'src/app/services/cart-service.service';
+import { ShoppingListService } from 'src/app/services/shopping-list-service';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { ShoppingItemComponent } from './shopping-item.component';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ShoppingListService } from 'src/app/Services/shopping-list-service';
+import { ShoppingListService } from 'src/app/services/shopping-list-service';
 
 @Component({
   selector: 'app-mobile-side-menu',

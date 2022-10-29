@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { colors } from '../Components/settings-filter/settings-filter.component';
+import { colors } from '../components/settings-filter/settings-filter.component';
 
 @Injectable({
   providedIn: 'root'

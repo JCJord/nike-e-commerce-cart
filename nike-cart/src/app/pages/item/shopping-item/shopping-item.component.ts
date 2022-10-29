@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Params, Router } from '@angular/router'
-import { CartServiceService } from 'src/app/Services/cart-service.service'
+import { CartServiceService } from 'src/app/services/cart-service.service'
 import { Shoes } from '../../../entities/shoes.model'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ShoppingListService } from '../../../Services/shopping-list-service'
+import { ShoppingListService } from '../../../services/shopping-list-service'
 import SwiperCore, { SwiperOptions, Scrollbar } from 'swiper';
 import { trigger, state, style, transition, animate } from '@angular/animations'
 import { shoppingItem } from '../../../entities/shopping-item.model';

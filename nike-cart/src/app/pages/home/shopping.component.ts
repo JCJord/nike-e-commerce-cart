@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Shoes } from 'src/app/entities/shoes.model';
-import { ShoppingListService } from 'src/app/Services/shopping-list-service';
+import { ShoppingListService } from 'src/app/services/shopping-list-service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-shopping',
+  templateUrl: './shopping.component.html',
+  styleUrls: ['./shopping.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class ShoppingComponent implements OnInit {
   shoes!: Shoes[];
   shoesAmount!: number;
   

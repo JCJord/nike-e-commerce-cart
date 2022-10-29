@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { ShoppingListService } from 'src/app/Services/shopping-list-service';
+import { ShoppingListService } from 'src/app/services/shopping-list-service';
 
 interface AppState {
   cart: boolean;

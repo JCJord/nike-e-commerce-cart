@@ -3,7 +3,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { ShoppingListService } from 'src/app/Services/shopping-list-service';
+import { ShoppingListService } from 'src/app/services/shopping-list-service';
 
 interface AppState {
   message: boolean;

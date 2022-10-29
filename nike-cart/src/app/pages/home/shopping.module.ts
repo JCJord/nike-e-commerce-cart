@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { HomeComponent } from './home.component';
+import { ShoppingComponent } from './shopping.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-  declarations: [HomeComponent, ShoppingListComponent],
+  declarations: [ShoppingComponent, ShoppingListComponent],
   imports: [
     CommonModule,
     SharedModule,
   ],
-  exports:[HomeComponent, ShoppingListComponent]
+  exports:[ShoppingComponent, ShoppingListComponent]
 })
 export class ShoppingModule { }

@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core'
-import { ShoppingListService } from 'src/app/Services/shopping-list-service';
-import { SettingsFilterComponent } from '../../../Components/settings-filter/settings-filter.component';
+import { ShoppingListService } from 'src/app/services/shopping-list-service';
+import { SettingsFilterComponent } from '../../../components/settings-filter/settings-filter.component';
 import { Shoes } from '../../../entities/shoes.model'
 
 @Component({

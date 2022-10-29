@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { shoppingItem } from './entities/shopping-item.model';
-import { CartServiceService } from './Services/cart-service.service';
+import { CartServiceService } from './services/cart-service.service';
 
 interface AppState {
   message: boolean;
