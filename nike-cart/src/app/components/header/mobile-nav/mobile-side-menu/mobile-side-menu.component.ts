@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { ShoppingListService } from 'src/app/services/shopping-list-service';
 
@@ -30,14 +31,16 @@ export class MobileSideMenuComponent implements OnInit {
     }
   ]
 
-  constructor(private shoppingListService: ShoppingListService, private store: Store<boolean>) { }
+  constructor(private shoppingListService: ShoppingListService, private store: Store<boolean>, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   searchShoeByName(name: string) {
     this.store.dispatch({type: "hide_mobile_menu"})
+    this.router.navigate(['/']);
     this.shoppingListService.filterShoesByName(name);
+
   }
 
 }

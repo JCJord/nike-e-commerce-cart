@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MobileSideMenuComponent } from './mobile-nav/mobile-side-menu/mobile-side-menu.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -15,6 +16,7 @@ import { MobileSideMenuComponent } from './mobile-nav/mobile-side-menu/mobile-si
   imports: [
     CommonModule,
     RouterModule,
+    SharedModule,
     BrowserAnimationsModule,
     FormsModule
   ],

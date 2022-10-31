@@ -122,7 +122,6 @@
 
 .btn-nike {
     @include nikeBtn(rgb(17, 17, 17));
-
     &:hover {
         background: rgb(71, 71, 71);
     }
@@ -139,3 +138,31 @@
 .cart-menu-width {
     min-width: 327px;
 }
+
+
+@media only screen and (max-width: 375px) {
+    .item-container {
+        overflow: hidden;
+    }
+    .show-cart-menu {
+        width: 100% !important;
+
+        .cart-menu-header {
+            min-width: unset !important;
+        }
+    }
+    .cart-menu-width {
+        min-width: 202px !important;
+        width: 100% !important;
+    }
+
+    .item-container {
+        min-width: 217px !important;
+    }
+
+    .no-items-info {
+        min-width: 202px;
+        overflow: hidden !important;
+    }
+}
+  

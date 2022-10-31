@@ -28,7 +28,7 @@
       <div class="swiper-container d-none">
         <swiper
         [config]="config"
-        class="swiper-info">
+        class="swiper-info" style="height:auto !important;">
           <ng-template swiperSlide *ngFor="let img of item.itemImgs">
    
               <img [src]="img" class="img-fluid w-100 h-100" alt="">
@@ -36,7 +36,6 @@
           </ng-template>
 
         </swiper>
-
       </div>
 
 
