@@ -6,6 +6,8 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { ShoppingItemComponent } from './shopping-item.component';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 fdescribe('ShoppingItemComponent', () => {
   let component: ShoppingItemComponent;
@@ -14,7 +16,8 @@ fdescribe('ShoppingItemComponent', () => {
   let shoppingListService: ShoppingListService;
   let route: ActivatedRoute;
   let mockShoppingService: jasmine.SpyObj<ShoppingListService>;
-
+  let el: DebugElement;
+  
   const paramsSubject = new BehaviorSubject({
     id: 0,
   });
@@ -34,7 +37,7 @@ fdescribe('ShoppingItemComponent', () => {
       price: 5000, imgUrl: 
       'www.google.com/chuteira', 
       itemImgs: ['imagem chuteira'], 
-      size:[38,39,40]
+      size:[37,39,40]
     });
 
     await TestBed.configureTestingModule({
@@ -56,6 +59,7 @@ fdescribe('ShoppingItemComponent', () => {
     shoppingListService = TestBed.inject(ShoppingListService);
     route = TestBed.inject(ActivatedRoute);
     store = TestBed.inject(MockStore);
+    el = fixture.debugElement;
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -72,7 +76,15 @@ fdescribe('ShoppingItemComponent', () => {
       expect(shoppingItem.name).toBeTruthy();
       expect(shoppingItem.itemImgs.length).toBeGreaterThan(0);
       expect(id).not.toBe(undefined);
-    })
+    });
   })
+  
+  it('form should be valid to be submitted', () => {
+    let sizeField = component.cartForm.controls['size'];    
+    expect(sizeField.valid).toBeFalsy();
+
+    sizeField.setValue(38);
+    expect(component.cartForm.valid).toBeTruthy();
+  });
   
 });
