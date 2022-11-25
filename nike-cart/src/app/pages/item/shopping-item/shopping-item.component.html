@@ -49,17 +49,17 @@
           <div class="mb-2" style="font-size: 16px;">
             Tamanho
           </div>
-          <input formControlName="size" class="d-none" type="number" [(ngModel)]="selectedSize">
+          <input id="size" formControlName="size" class="d-none" type="number">
           <div class="size-grid row gx-1 gy-1 m-0">
             <div class="col-3" *ngFor="let size of item.size">
-              <div class="w-100 btn btn-size text-center" style="cursor: pointer;" (click)="setSize(size)" [ngClass]="{'selected-size': selectedSize == size}">
+              <div class="w-100 btn btn-size text-center" style="cursor: pointer;" id="size-btn" (click)="setSize(size)" [ngClass]="{'selected-size': cartForm.getRawValue()['size'] == size}">
                 {{size}}
               </div>
             </div>
           </div>
         </div>
   
-        <button class="btn btn-cart w-100 mt-4 py-3" type="submit">
+        <button class="btn btn-cart w-100 mt-4 py-3" id="add-to-cart" type="submit">
           Adicionar ao carrinho
         </button>
         <div class="text-center mt-3">

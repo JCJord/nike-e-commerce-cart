@@ -36,7 +36,7 @@ interface AppState {
 export class ShoppingItemComponent implements OnInit {
   
   cartForm = new FormGroup({
-    'size': new FormControl(null, [Validators.required])
+    'size': new FormControl({value:undefined, disabled:false},[Validators.minLength(1),Validators.required])
   });
 
   config: SwiperOptions = {
@@ -47,7 +47,7 @@ export class ShoppingItemComponent implements OnInit {
 
   item!: Shoes;
   loaded = 0;
-  selectedSize!: number;
+
   isLoading = true;
   descriptionToggler = true;
   isSizeInputValid = true;
@@ -75,7 +75,7 @@ export class ShoppingItemComponent implements OnInit {
   addToCart() {
     if(this.cartForm.get('size')?.valid) {
       let cartItem: any = {...this.item};
-      cartItem['selectedSize'] = this.selectedSize;
+      cartItem['selectedSize'] = this.cartForm.controls.size.value;
       cartItem['amount'] = 1;
       cartItem['total_value'] = this.item.price;
       this.cartService.addShoes(cartItem as shoppingItem);
@@ -87,10 +87,9 @@ export class ShoppingItemComponent implements OnInit {
   }
 
   setSize (size: number) {
-    this.selectedSize = size;
-    if (!this.cartForm.get('size')?.valid){
-      this.isSizeInputValid = true;
-    }
+    this.cartForm.controls['size'].setValue(size);
+    
+    this.isSizeInputValid = true;
   }
 
   onLoad() {
