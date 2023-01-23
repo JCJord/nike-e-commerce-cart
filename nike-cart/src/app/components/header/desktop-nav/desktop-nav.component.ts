@@ -1,9 +1,9 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { ShoppingListService } from 'src/app/services/shopping-list-service';
+import { ShoppingListService } from 'src/app/shared/services/shopping-list-service';
 
 interface AppState {
   message: boolean;
@@ -41,9 +41,8 @@ export class DesktopNavComponent implements OnInit {
     {
       shoeSearch: 'Kyrie Low'
     },
-
   ]
-  
+
   focusSearchOn!:boolean;
   linksReadyToAppear = true;
   closeButtonReadyToAppear = false;
@@ -67,10 +66,10 @@ export class DesktopNavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  focusInput() {    
+  focusInput() {
     this.store.dispatch({type: "open"})
     this.linksReadyToAppear = false;
-    
+
     setTimeout(()=>{
       this.closeButtonReadyToAppear = true;
     },300);

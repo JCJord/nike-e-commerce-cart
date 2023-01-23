@@ -6,29 +6,30 @@ import { AppComponent } from './app.component';
 import { HeaderModule } from './components/header/header.module';
 import { CarouselModule } from './components/main-carousel/carousel.module';
 
-import { ShoppingListService } from './services/shopping-list-service';
-import { CartComponent } from './pages/cart/cart.component';
+
 import { cartMenuReducer, menuReducer, mobileMenuReducer } from './states/menu-reducer';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ItemModule } from './pages/item/item.module';
 import { ShoppingModule } from './pages/home/shopping.module';
 import { ShoppingRoutingModule } from './pages/home/shopping-routing.module';
 import { ItemRoutingModule } from './pages/item/item-routing.module';
+import { CartModule } from './pages/cart/cart.module';
+import { ShoppingListService } from './shared/services/shopping-list-service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CartComponent,
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     ItemModule,
     ShoppingModule,
-    ReactiveFormsModule, 
-    AppRoutingModule, 
+    ReactiveFormsModule,
+    AppRoutingModule,
     ShoppingRoutingModule,
+    CartModule,
     ItemRoutingModule,
-    HeaderModule, 
+    HeaderModule,
     CarouselModule,
     StoreModule.forRoot({message: menuReducer, cart: cartMenuReducer, mobile: mobileMenuReducer})
   ],

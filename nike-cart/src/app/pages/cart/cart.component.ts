@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Shoes } from 'src/app/entities/shoes.model';
-import { CartServiceService } from '../../services/cart-service.service';
+import { CartServiceService } from 'src/app/shared/services/cart-service.service';
+
 import { shoppingItem } from '../../entities/shopping-item.model';
 
 @Component({
@@ -12,10 +12,10 @@ export class CartComponent implements OnInit {
   items: shoppingItem[] = [];
   initialValues: Array<number> = [];
   subTotal = 0;
-  constructor(private cartService:CartServiceService) { }
+  constructor(private cartService: CartServiceService) { }
 
   ngOnInit(): void {
-    this.cartService.getItems().subscribe((shoes)=>{
+    this.cartService.getItems().subscribe((shoes: shoppingItem[])=>{
       this.items = shoes;
     })
     this.calcSubTotal();
@@ -25,7 +25,7 @@ export class CartComponent implements OnInit {
     if(this.items[index].amount > 1) {
       let { price } = this.items[index];
       this.items[index].amount--;
-      this.items[index].total_value = this.items[index].total_value -price; 
+      this.items[index].total_value = this.items[index].total_value -price;
       this.calcSubTotal();
     }
   }

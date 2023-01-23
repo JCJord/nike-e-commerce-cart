@@ -1,5 +1,6 @@
 import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
-import { Shoes } from '../entities/shoes.model'
+import { Shoes } from 'src/app/entities/shoes.model';
+
 
 export class ShoppingListService {
   private shoes: Shoes[] = [
@@ -127,7 +128,7 @@ export class ShoppingListService {
   ];
 
   public isLoading: Subject<any> = new BehaviorSubject(false);
-  
+
   private allShoes:Shoes[] = [...this.shoes];
   shoesObservable: Subject<Shoes[]> = new BehaviorSubject(this.shoes);
 
@@ -189,7 +190,7 @@ export class ShoppingListService {
           this.isLoading.next(false);
         },400);
         break;
-        
+
         default:
         this.isLoading.next(true);
         this.shoes = this.allShoes;
@@ -213,7 +214,7 @@ export class ShoppingListService {
 
   getFeaturedItems() {
     let featuredItems:Shoes[] = [];
-    
+
     for(let i = 4; i < 7; i++) {
       featuredItems.push(this.allShoes[i]);
     }

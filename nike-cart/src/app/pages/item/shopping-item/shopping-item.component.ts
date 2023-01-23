@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Params, Router } from '@angular/router'
-import { CartServiceService } from 'src/app/services/cart-service.service'
+// import { CartServiceService } from 'src/app/services/cart-service.service'
 import { Shoes } from '../../../entities/shoes.model'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ShoppingListService } from '../../../services/shopping-list-service'
+// import { ShoppingListService } from '../../../services/shopping-list-service'
 import SwiperCore, { SwiperOptions, Scrollbar } from 'swiper';
 import { trigger, state, style, transition, animate } from '@angular/animations'
 import { shoppingItem } from '../../../entities/shopping-item.model';
 import { Store } from '@ngrx/store';
+import { ShoppingListService } from 'src/app/shared/services/shopping-list-service';
+import { CartServiceService } from 'src/app/shared/services/cart-service.service';
 
 SwiperCore.use([Scrollbar]);
 interface AppState {
@@ -26,7 +28,7 @@ interface AppState {
       state('closed', style({
         overflow: 'hidden',
         height: '150px',
-        
+
       })),
       transition('closed => open', animate('300ms ease-in-out')),
       transition('open => closed', animate('300ms ease-in-out')),
@@ -34,7 +36,7 @@ interface AppState {
   ],
 })
 export class ShoppingItemComponent implements OnInit {
-  
+
   cartForm = new FormGroup({
     'size': new FormControl({value:undefined, disabled:false},[Validators.minLength(1),Validators.required])
   });
@@ -57,7 +59,7 @@ export class ShoppingItemComponent implements OnInit {
   constructor (
     private shoppingListService: ShoppingListService,
     private route: ActivatedRoute,
-    private cartService:CartServiceService,
+    private cartService: CartServiceService,
     private store: Store<AppState>
   ) {
     setTimeout(()=> {
@@ -79,7 +81,7 @@ export class ShoppingItemComponent implements OnInit {
       cartItem['amount'] = 1;
       cartItem['total_value'] = this.item.price;
       this.cartService.addShoes(cartItem as shoppingItem);
-      
+
       this.store.dispatch({type: "show_cart_menu"});
     }else {
       this.isSizeInputValid = false;
@@ -88,7 +90,7 @@ export class ShoppingItemComponent implements OnInit {
 
   setSize (size: number) {
     this.cartForm.controls['size'].setValue(size);
-    
+
     this.isSizeInputValid = true;
   }
 
@@ -99,5 +101,5 @@ export class ShoppingItemComponent implements OnInit {
       this.isLoading = false;
     }
   }
-  
+
 }

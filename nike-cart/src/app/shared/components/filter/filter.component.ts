@@ -1,7 +1,7 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Shoes } from 'src/app/entities/shoes.model';
-import { ShoppingListService } from 'src/app/services/shopping-list-service';
+import { ShoppingListService } from 'src/app/shared/services/shopping-list-service';
 
 @Component({
   selector: 'app-filter',
@@ -38,7 +38,7 @@ export class FilterComponent {
   activeGrid!: number;
   filterIsActive = true;
 
-  constructor(private shoppingListService:ShoppingListService) { }
+  constructor(private shoppingListService: ShoppingListService) { }
 
   selectFilter(filter: string) {
     this.selectedFilter = filter;

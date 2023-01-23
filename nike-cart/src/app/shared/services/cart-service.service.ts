@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { shoppingItem } from '../entities/shopping-item.model';
+import { shoppingItem } from 'src/app/entities/shopping-item.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +9,12 @@ import { shoppingItem } from '../entities/shopping-item.model';
 export class CartServiceService {
   shoesInCart: shoppingItem[] = [];
   cartShoes$: Subject<shoppingItem[]> = new BehaviorSubject(this.shoesInCart);
-  
+
   constructor() { }
 
   addShoes(shoe: shoppingItem) {
     const isAlreadyIn = this.shoesInCart.find(items => items.name === shoe.name && items.selectedSize === shoe.selectedSize);
-    
+
     if(isAlreadyIn) {
       for(let item of this.shoesInCart) {
         if(item.name === shoe.name && item.selectedSize === shoe.selectedSize){

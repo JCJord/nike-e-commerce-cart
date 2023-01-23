@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { ShoppingListService } from 'src/app/services/shopping-list-service';
+import { ShoppingListService } from 'src/app/shared/services/shopping-list-service';
 
 @Component({
   selector: 'app-mobile-side-menu',
@@ -9,10 +9,10 @@ import { ShoppingListService } from 'src/app/services/shopping-list-service';
   styleUrls: ['./mobile-side-menu.component.scss']
 })
 export class MobileSideMenuComponent implements OnInit {
-  
+
   @Input()
-  menuActive!: boolean;  
-  
+  menuActive!: boolean;
+
   menuLinks = [
     {
       link: 'Mercurial',

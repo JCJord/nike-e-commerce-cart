@@ -1,6 +1,7 @@
 import { Component, Input, ViewChild } from '@angular/core'
-import { ShoppingListService } from 'src/app/services/shopping-list-service';
-import { SettingsFilterComponent } from '../../../components/settings-filter/settings-filter.component';
+import { SettingsFilterComponent } from 'src/app/shared/components/settings-filter/settings-filter.component';
+import { ShoppingListService } from 'src/app/shared/services/shopping-list-service';
+
 import { Shoes } from '../../../entities/shoes.model'
 
 @Component({
@@ -25,7 +26,7 @@ export class ShoppingListComponent {
   shoesFiltered = false;
   filterIsActive = true;
 
-  constructor (private shoppingListService:ShoppingListService) {}
+  constructor (private shoppingListService: ShoppingListService) {}
 
   ngOnInit() {
     this.shoppingListService.isLoading.subscribe((isLoading: boolean) => {
@@ -40,7 +41,7 @@ export class ShoppingListComponent {
   gridStyles(gridColSize: number) {
     if(gridColSize == 2) {
       return 'grid-2';
-    } 
+    }
     if(gridColSize == 3) {
       return 'grid-3';
     } else {

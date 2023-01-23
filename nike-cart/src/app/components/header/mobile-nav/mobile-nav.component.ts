@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { ShoppingListService } from 'src/app/services/shopping-list-service';
+import { ShoppingListService } from 'src/app/shared/services/shopping-list-service';
 
 interface AppState {
   cart: boolean;
@@ -16,7 +16,7 @@ interface AppState {
   styleUrls: ['./mobile-nav.component.scss', '../header.component.scss'],
 })
 export class MobileNavComponent {
-  
+
   searchForm = new FormGroup({
     'search': new FormControl(null)
   });
@@ -27,7 +27,7 @@ export class MobileNavComponent {
   isShopping!: boolean;
   menuActive!: boolean;
   isSearchActive!: boolean;
-  
+
   constructor (private store: Store<AppState>, private shoppingListService: ShoppingListService, private router: Router) {
     this.focus$ = this.store.select('cart');
     this.mobileMenu$ = this.store.select('mobile');
@@ -36,7 +36,7 @@ export class MobileNavComponent {
     this.focus$.subscribe((menuState)=>{
       this.isShopping = menuState;
     });
-    
+
     this.mobileMenu$.subscribe((menuState)=>{
       this.menuActive = menuState;
     });

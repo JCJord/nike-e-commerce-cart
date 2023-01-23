@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Shoes } from 'src/app/entities/shoes.model';
-import { ShoppingListService } from 'src/app/services/shopping-list-service';
+import { ShoppingListService } from 'src/app/shared/services/shopping-list-service';
+
 
 @Component({
   selector: 'app-shopping',
@@ -10,10 +11,10 @@ import { ShoppingListService } from 'src/app/services/shopping-list-service';
 export class ShoppingComponent implements OnInit {
   shoes!: Shoes[];
   shoesAmount!: number;
-  
-  constructor(private shoppingListService:ShoppingListService) { 
+
+  constructor(private shoppingListService: ShoppingListService) {
   }
-  
+
   ngOnInit(): void {
     this.getShoes();
   }

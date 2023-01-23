@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { shoppingItem } from './entities/shopping-item.model';
-import { CartServiceService } from './services/cart-service.service';
+import { CartServiceService } from './shared/services/cart-service.service';
 
 interface AppState {
   message: boolean;
@@ -25,7 +25,7 @@ export class AppComponent {
   isShopping!: boolean;
   mobileMenu!: boolean;
   subTotal = 0;
-  
+
   constructor(private store: Store<AppState>, public router: Router, private cart: CartServiceService){
     this.cartMenu$ = this.store.select('cart');
     this.focus$ = this.store.select('message');
@@ -56,7 +56,7 @@ export class AppComponent {
 
   unfocusSearch() {
     this.store.dispatch({type: 'closed'});
-    
+
   }
 
   unfocusCartMenu() {

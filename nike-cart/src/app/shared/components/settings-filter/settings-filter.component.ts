@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ColorService } from 'src/app/services/color.service';
-import { ShoppingListService } from 'src/app/services/shopping-list-service';
-import { Shoes } from '../../entities/shoes.model';
+import { Shoes } from 'src/app/entities/shoes.model';
+import { ColorService } from 'src/app/shared/services/color.service';
+import { ShoppingListService } from 'src/app/shared/services/shopping-list-service';
 
 export interface colors {
   name:string,
@@ -17,7 +17,7 @@ export interface colors {
 export class SettingsFilterComponent implements OnInit {
 
   open = true;
-  
+
   colors: Array<colors> = [
     {
       name: 'Amarelo',
@@ -88,7 +88,7 @@ export class SettingsFilterComponent implements OnInit {
 
   colorCopy = [...this.colors];
   constructor(private shoppingListService: ShoppingListService, private colorService: ColorService) { }
-  
+
   ngOnInit(): void {
     this.colorService.getCurrentColor().subscribe((previousColorState:colors[])=>{
       if(previousColorState.length) {
@@ -126,12 +126,12 @@ export class SettingsFilterComponent implements OnInit {
 
     } else {
       this.shoppingListService.filterItemByColor(color);
-    
-      
+
+
       this.colors = this.getAvailableColors(color);
       this.colors.push({name: color, code: code, isSelected: false});
       const newIndex = this.colors.findIndex((color)=> color.code === code);
-  
+
       this.selectColor(newIndex);
     }
   }
@@ -149,13 +149,13 @@ export class SettingsFilterComponent implements OnInit {
     });
 
     avaialableColors = avaialableColors.filter((x: colors) => x.name.length != 0).flat();
-    
+
     let currentColors = avaialableColors.map((availableColor: colors) => this.colors.filter((colorItem: colors) => colorItem.name.toLowerCase() === availableColor.name )).flat();
     const noDuplicates: Array<colors> = Array.from(new Set(currentColors));
-    
+
     return noDuplicates;
   }
-  
+
   selectColor(index: number) {
     this.colors[index].isSelected = true;
   }
