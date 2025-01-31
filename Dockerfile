@@ -1,17 +1,20 @@
-FROM node:12.14.1-alpine
+# Use a more recent Node.js version
+FROM node:16-alpine
 
-# Create app directory
+# Set the working directory inside the container
 WORKDIR /usr/src/app
 
-COPY package.json .
-COPY package-lock.json .
+# Copy package files first to optimize caching
+COPY nike-cart/package.json nike-cart/package-lock.json ./
 
+# Install dependencies
 RUN npm install
-# Bundle app source
 
-COPY . .
+# Copy the entire Angular project
+COPY nike-cart .
 
-EXPOSE 4200:4200
+# Expose the Angular development server port
+EXPOSE 4200
 
-# Run container as non-root
-CMD /usr/src/app/node_modules/.bin/ng serve --host 0.0.0.0 --disableHostCheck
+# Default command to start Angular app
+CMD ["npx", "ng", "serve", "--host", "0.0.0.0", "--disableHostCheck"]

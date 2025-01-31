@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  angular-app:
+    build: .
+    container_name: angular-container
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./nike-cart:/usr/src/app
+      - /usr/src/app/node_modules # Prevent overwriting node_modules
+    command: ["npx", "ng", "serve", "--host", "0.0.0.0", "--disableHostCheck"]
+    stdin_open: true
+    tty: true
