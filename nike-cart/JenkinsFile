@@ -11,6 +11,7 @@ pipeline {
             steps {
                 sh '''
                     ls -la
+                    cd nike-cart
                     node --version
                     npm --version
                     npm ci
