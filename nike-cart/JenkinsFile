@@ -9,7 +9,15 @@ pipeline {
                 }
             }
             steps {
-                sh 'echo "With Docker"'
+                sh '''
+                ls -la
+                echo "With Docker"
+                node --version
+                npm --version
+                npm ci
+                npm run build
+                ls -la
+                '''
             }
         }
     }
