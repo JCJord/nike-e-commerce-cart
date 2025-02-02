@@ -10,10 +10,23 @@ services:
       - "4200:4200"
     volumes:
       - ./nike-cart:/usr/src/app
-      - /usr/src/app/node_modules # Prevent overwriting node_modules
+      - /usr/src/app/node_modules
     command: ["npx", "ng", "serve", "--host", "0.0.0.0", "--disableHostCheck"]
     stdin_open: true
     tty: true
+  angular-test:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    container_name: angular-test
+    volumes:
+      - ./nike-cart:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - CHROME_BIN=/usr/bin/chromium-browser
+      - CHROME_PATH=/usr/lib/chromium/
+      - NODE_OPTIONS=--openssl-legacy-provider  # 🔹 Fix Webpack OpenSSL issue
+    command: ["npm", "run", "test", "--", "--watch=false", "--browsers=ChromeHeadless"]
   jenkins-docker:
     image: docker:dind
     container_name: jenkins-docker

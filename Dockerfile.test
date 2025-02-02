@@ -1,0 +1,24 @@
+FROM node:current-alpine3.12
+
+# Install Chromium and other dependencies needed to run ChromeHeadless
+RUN apk add chromium
+
+# Set CHROME_BIN environment variable to the location of the Chromium binary
+ENV CHROME_BIN=/usr/bin/chromium-browser
+
+ENV NODE_OPTIONS="--openssl-legacy-provider"
+
+# Set working directory
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json for npm install
+COPY nike-cart/package.json nike-cart/package-lock.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the code
+COPY nike-cart .
+
+# Run tests with ChromeHeadless
+CMD ["npm", "run", "test", "--"]
