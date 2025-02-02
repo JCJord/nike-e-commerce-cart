@@ -1,23 +1,72 @@
 pipeline {
     agent any
 
+
+    environment {
+        DOCKER_IMAGE_CLIENT = 'angular-client-image'
+        DOCKER_IMAGE_TEST = 'angular-test-image'
+    }
+
     stages {
-        stage('Docker') {
+        stage('Build angular app') {
             agent {
                 docker {
-                    image 'node:16-alpine'
+                    image: 'node:16-alpine'
                 }
             }
             steps {
-                sh '''
-                    ls -la
-                    cd nike-cart
-                    node --version
-                    npm --version
-                    npm ci
-                    npm run build
-                    ls -la
-                '''
+                script {
+                    sh '''
+                        cd nike-cart
+                        npm install
+                        npm run build
+                    '''
+                }
+            }
+        }
+
+        stage('Build Docker Client') {
+            steps {
+                script {
+                    // Build Docker image for the Angular client
+                    sh '''
+                        docker build -t $DOCKER_IMAGE_CLIENT -f Dockerfile.client .
+                    '''
+                }
+            }
+        }
+
+        stage('Build Docker Test') {
+            steps {
+                script {
+                    // Build Docker image for testing
+                    sh '''
+                        docker build -t $DOCKER_IMAGE_TEST -f Dockerfile.test .
+                    '''
+                }
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                script {
+                    // Run tests in the test container
+                    sh '''
+                        docker run --rm $DOCKER_IMAGE_TEST
+                    '''
+                }
+            }
+        }
+        
+
+        stage('Serve Angular App') {
+            steps {
+                script {
+                    // Serve Angular App in a Docker container
+                    sh '''
+                        docker run -d -p 4200:4200 --name angular-container $DOCKER_IMAGE_CLIENT
+                    '''
+                }
             }
         }
     }
