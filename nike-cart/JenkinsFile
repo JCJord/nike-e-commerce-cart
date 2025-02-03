@@ -7,23 +7,6 @@ pipeline {
     }
     
     stages {
-        stage('Build angular app') {
-            agent {
-                docker {
-                    image 'node:16-alpine'
-                }
-            }
-            steps {
-                script {
-                    sh '''
-                        cd nike-cart
-                        npm install
-                        npm run build
-                    '''
-                }
-            }
-        }
-        
         stage('Build Docker Test') {
             steps {
                 script {
@@ -39,6 +22,23 @@ pipeline {
                 script {
                     sh '''
                         docker run --rm $DOCKER_IMAGE_TEST
+                    '''
+                }
+            }
+        }
+        
+        stage('Build angular app') {
+            agent {
+                docker {
+                    image 'node:16-alpine'
+                }
+            }
+            steps {
+                script {
+                    sh '''
+                        cd nike-cart
+                        npm install
+                        npm run build
                     '''
                 }
             }
