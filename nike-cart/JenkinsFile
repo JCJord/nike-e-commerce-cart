@@ -1,11 +1,11 @@
 pipeline {
     agent any
-
+    
     environment {
         DOCKER_IMAGE_CLIENT = 'angular-client-image'
         DOCKER_IMAGE_TEST = 'angular-test-image'
     }
-
+    
     stages {
         stage('Build angular app') {
             agent {
@@ -23,7 +23,37 @@ pipeline {
                 }
             }
         }
-
+        
+        stage('Build Docker Test') {
+            steps {
+                script {
+                    sh '''
+                        docker build -t $DOCKER_IMAGE_TEST -f Dockerfile.test .
+                    '''
+                }
+            }
+        }
+        
+        stage('Run Tests') {
+            steps {
+                script {
+                    sh '''
+                        docker run --rm $DOCKER_IMAGE_TEST
+                    '''
+                }
+            }
+        }
+        
+        stage('Build Docker Client') {
+            steps {
+                script {
+                    sh '''
+                        docker build -t $DOCKER_IMAGE_CLIENT -f Dockerfile.client .
+                    '''
+                }
+            }
+        }
+        
         stage('AWS') {
             agent {
                 docker {
@@ -39,39 +69,6 @@ pipeline {
                     sh '''
                         aws --version
                         aws s3 cp nike-cart/dist/nike-cart/ s3://${AWS_S3_BUCKET}/ --recursive
-                    '''
-                }
-            }
-        }
-
-        stage('Build Docker Client') {
-            steps {
-                script {
-                    // Build Docker image for the Angular client
-                    sh '''
-                        docker build -t $DOCKER_IMAGE_CLIENT -f Dockerfile.client .
-                    '''
-                }
-            }
-        }
-
-        stage('Build Docker Test') {
-            steps {
-                script {
-                    // Build Docker image for testing
-                    sh '''
-                        docker build -t $DOCKER_IMAGE_TEST -f Dockerfile.test .
-                    '''
-                }
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                script {
-                    // Run tests in the test container
-                    sh '''
-                        docker run --rm $DOCKER_IMAGE_TEST
                     '''
                 }
             }
