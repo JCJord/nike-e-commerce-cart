@@ -42,7 +42,12 @@ module.exports = function (config) {
       reporters: [
         { type: 'html' },
         { type: 'text-summary' }
-      ]
+      ],
+      junitReporter: {
+        outputDir: 'test-results', // The directory where the report will be stored
+        outputFile: 'test-report.xml', // The filename of the test report
+        suite: '' // Optional: If you want to specify a suite name
+      },
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
