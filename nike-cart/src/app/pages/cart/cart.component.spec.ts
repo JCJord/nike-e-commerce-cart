@@ -20,6 +20,6 @@ describe('CartComponent', () => {
   });
 
   fit('should create', () => {
-    expect(component).toBeFalsy();
+    expect(component).toBeTruthy();
   });
 });
