@@ -21,4 +21,4 @@ RUN npm install
 COPY nike-cart .
 
 # Run tests with ChromeHeadless
-CMD ["npm", "run", "test", "--"]
+CMD ["npm", "run", "test", "--", "--watch=false"]
